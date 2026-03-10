@@ -3,57 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Station 6: Microbiome Blockade</title>
+    <title>Station 6: Microbiome Blockade &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Station 6 of 7</div>
         <h1>Station 6: Microbiome Blockade</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>Gut Flora Disruption & Water Absorption &mdash; Antibiotic Effects on the Large Intestine</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>The Microbiome Blockade</h2>
-            <p>Action: Simulate the effect of antibiotics on the large intestine.</p>
-            <p>Mechanical Requirement: Place a removable barrier labeled "Bacterial Flora" in the large intestine. Demonstrate that when the flora is "killed" (removed), water (represented by sand or liquid) flows through the system too rapidly to be reabsorbed, exiting the machine immediately.</p>
-            <img src="images/intestinal_flora.png" alt="Intestinal Flora" class="section-image"/>
-            <!-- local flora image -->
-            <div class="simulation">
-                <p>Drag an element to influence the microbiome; water flow indicator shows absorption speed.</p>
-                <button onclick="resetMicrobiome()">Reset Station</button>
-                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-                <div class="items">
-                    <div id="flora" draggable="true" ondragstart="drag(event)" data-action="restore" class="draggable">Bacterial Flora</div>
-                    <div id="antibiotic" draggable="true" ondragstart="drag(event)" data-action="remove" class="draggable">Antibiotic</div>
-                    <div id="probiotic" draggable="true" ondragstart="drag(event)" data-action="probiotic" class="draggable">Probiotic Capsule</div>
-                    <div id="pathogen" draggable="true" ondragstart="drag(event)" data-action="pathogen" class="draggable">Pathogen</div>
-                    <div id="prebiotic" draggable="true" ondragstart="drag(event)" data-action="prebiotic" class="draggable">Prebiotic Fiber</div>
+            <h2>&#127774; The Microbiome Blockade</h2>
+            <p class="section-desc">
+                This station models the critical role of the <strong>gut microbiome</strong> in colonic water
+                reabsorption, and demonstrates the physiological consequences of microbiome disruption by
+                antibiotics, pathogens, and remediation through probiotics and prebiotics.
+            </p>
+
+            <!-- Biological Background -->
+            <div class="fact-panel">
+                <div class="panel-title">Biological Background &mdash; The Gut Microbiome</div>
+                <p><strong>Scale & Diversity:</strong> The human gut microbiome contains approximately <strong>100 trillion microorganisms</strong> representing over 1,000 species. The colon has the highest density &mdash; up to 10<sup>11</sup> bacteria per milliliter of luminal content. Dominant phyla include <em>Firmicutes</em> and <em>Bacteroidetes</em>.</p>
+                <p style="margin-top:.5rem;"><strong>Water Absorption Role:</strong> Gut bacteria ferment undigested carbohydrates (fiber) into <span class="term">short-chain fatty acids (SCFAs)</span> &mdash; primarily butyrate, propionate, and acetate. SCFAs stimulate Na&#8314;/water co-transport channels in colonocytes, enhancing water reabsorption. Healthy flora also slows colonic transit time, allowing adequate contact time for absorption.</p>
+                <p style="margin-top:.5rem;"><strong>Antibiotic Disruption:</strong> Broad-spectrum antibiotics (e.g., clindamycin, ampicillin) kill both pathogenic and commensal bacteria indiscriminately. The resulting <span class="term">dysbiosis</span> impairs SCFA production, disrupts the mucosal barrier, and accelerates transit, causing <span class="term">antibiotic-associated diarrhea (AAD)</span> in up to 25% of patients. Severe cases may involve <em>C. difficile</em> overgrowth.</p>
+            </div>
+
+            <div class="warn-panel">
+                <div class="panel-title">Clinical Relevance &mdash; Antibiotic Stewardship</div>
+                <p>Understanding microbiome disruption is critical to <strong>antibiotic stewardship</strong> &mdash; the practice of prescribing antibiotics only when necessary and choosing narrow-spectrum agents when possible. The microbiome also interacts with the immune system, with 70% of immune cells located in gut-associated lymphoid tissue (GALT).</p>
+            </div>
+
+            <!-- Microbiome Diversity Bar Chart -->
+            <div style="margin:1rem 0;">
+                <p style="font-size:.83rem;font-weight:600;color:#5a6a82;margin-bottom:.3rem;">Microbiome Diversity Indicator (changes with simulation actions)</p>
+                <div class="microbiome-bars" style="height:90px;align-items:flex-end;">
+                    <div class="micro-bar" style="height:60px;" data-species="Lactob."></div>
+                    <div class="micro-bar" style="height:70px;" data-species="Bifido."></div>
+                    <div class="micro-bar" style="height:48px;" data-species="Bacter."></div>
+                    <div class="micro-bar" style="height:58px;" data-species="Firmic."></div>
+                    <div class="micro-bar" style="height:40px;" data-species="Clostrd."></div>
+                    <div class="micro-bar" style="height:65px;" data-species="Other"></div>
                 </div>
-                <div id="microbiome-zone" class="dropzone" ondrop="dropFlora(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
-                <div id="flow-indicator" class="flow slow">Water flow normal</div>
+                <p style="font-size:.72rem;color:#94a3b8;margin-top:22px;text-align:center;">Relative abundance of key bacterial genera (schematic representation)</p>
+            </div>
+
+            <!-- Simulation -->
+            <div class="simulation">
+                <div class="simulation-title">&#9878; Interactive Simulation</div>
+                <p class="sim-instructions">Drag items into the microbiome zone to alter gut flora. Observe how the water flow indicator and bacteria bar chart change. Try Antibiotic first (removes flora), then Probiotic (restores it). The bar chart represents relative microbial diversity.</p>
+
+                <div id="debug-output"></div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem;">
+                    <button onclick="resetMicrobiome()" class="btn-reset">Reset Station</button>
+                </div>
+
+                <div class="items-bank">
+                    <div class="items-bank-label">Microbiome-Disrupting Agents</div>
+                    <div class="items">
+                        <div id="antibiotic" draggable="true" ondragstart="drag(event)" data-action="remove" class="draggable" data-type="carnivore"
+                             data-tip="Broad-spectrum antibiotic: Kills commensal flora. Causes dysbiosis and AAD.">Antibiotic</div>
+                        <div id="pathogen"   draggable="true" ondragstart="drag(event)" data-action="pathogen" class="draggable" data-type="carnivore"
+                             data-tip="Pathogen (e.g., C. diff): Produces enterotoxins; disrupts epithelial barrier.">Pathogen</div>
+                    </div>
+                    <div class="items-bank-label" style="margin-top:.5rem;">Microbiome-Supporting Agents</div>
+                    <div class="items">
+                        <div id="flora"     draggable="true" ondragstart="drag(event)" data-action="restore"   class="draggable" data-type="herbivore"
+                             data-tip="Bacterial Flora: Full re-inoculation of commensal microbiome.">Bacterial Flora (Restore)</div>
+                        <div id="probiotic" draggable="true" ondragstart="drag(event)" data-action="probiotic" class="draggable" data-type="herbivore"
+                             data-tip="Probiotic: Live beneficial bacteria (Lactobacillus, Bifidobacterium).">Probiotic Capsule</div>
+                        <div id="prebiotic" draggable="true" ondragstart="drag(event)" data-action="prebiotic" class="draggable" data-type="herbivore"
+                             data-tip="Prebiotic fiber (inulin/FOS): Selectively feeds beneficial bacteria.">Prebiotic Fiber (FOS)</div>
+                    </div>
+                </div>
+
+                <div id="microbiome-zone" class="dropzone"
+                     ondrop="dropFlora(event); removeDragOver(event)"
+                     ondragover="allowDrop(event)"
+                     ondragleave="removeDragOver(event)">
+                    Drop agent into the Large Intestine Microbiome Zone
+                </div>
+
+                <!-- Water flow indicator -->
+                <div style="margin:.75rem 0;">
+                    <p style="font-size:.82rem;font-weight:600;color:#5a6a82;margin-bottom:.3rem;">Water Absorption Status:</p>
+                    <div id="flow-indicator" class="flow slow">Water absorption: Normal &mdash; healthy flora intact</div>
+                </div>
+
                 <div id="microbiome-result" class="result"></div>
             </div>
-            <a href="index.html" class="back-link">Back to Home</a>
+
+            <!-- SCFA Pathway Info Box -->
+            <div class="concept-panel" style="margin-top:1rem;">
+                <div class="panel-title">Mechanistic Detail &mdash; SCFA & Colonocyte Function</div>
+                <p>Short-chain fatty acids (primarily <strong>butyrate</strong>) produced by bacterial fermentation are the primary energy source for colonocytes (providing ~70% of their energy needs). Butyrate activates specific ion channels and stimulates the Na&#8314;/H&#8314; exchangers on colonocyte apical membranes, driving sodium &mdash; and osmotically coupled water &mdash; absorption. Loss of butyrate production = loss of colonocyte energy = loss of ion transport = water rushes through.</p>
+            </div>
+
+            <!-- Quiz -->
+            <div class="quiz-section">
+                <h3>&#128270; Check Your Understanding</h3>
+
+                <div class="quiz-question">
+                    <p>1. What are the main products of bacterial fermentation of dietary fiber in the large intestine?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Simple sugars (glucose, fructose) are absorbed in the small intestine, not produced by large intestine fermentation. Fiber reaches the colon intact.')">
+                        (A) Glucose and fructose
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Bacterial fermentation of dietary fiber produces Short-Chain Fatty Acids (SCFAs), primarily butyrate (the main colonocyte energy source), propionate (exported to liver), and acetate. These stimulate ion transport and water absorption by colonocytes.')">
+                        (B) Short-chain fatty acids (butyrate, propionate, acetate)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Long-chain fatty acids are produced from triglyceride hydrolysis in the small intestine by pancreatic lipase. They are not products of colonic fermentation.')">
+                        (C) Long-chain fatty acids and glycerol
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Amino acids are produced from protein digestion in the small intestine. Some protein degradation occurs in the colon but the primary fermentation product from fiber is SCFAs.')">
+                        (D) Essential amino acids
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. What condition can develop when broad-spectrum antibiotics eliminate protective gut flora?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Celiac disease is an autoimmune reaction to gluten (wheat protein), not caused by antibiotic treatment. It is a genetic condition.')">
+                        (A) Celiac disease
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Lactose intolerance is caused by insufficient lactase enzyme production, typically genetic. It is unrelated to antibiotic use.')">
+                        (B) Lactose intolerance
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! When antibiotics eliminate protective commensal flora, Clostridioides difficile (C. diff) can overgrow and produce toxins A and B that cause severe colitis, pseudomembranous colitis, and life-threatening diarrhea. This is why C. diff infection most commonly follows antibiotic treatment.')">
+                        (C) Clostridioides difficile (C. diff) overgrowth colitis
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Gastroesophageal reflux disease (GERD) is caused by lower esophageal sphincter dysfunction, not microbiome disruption.')">
+                        (D) Gastroesophageal reflux disease (GERD)
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <a href="station7.html" class="back-link">Next: Station 7 &mdash; Comparative Adaptor &rarr;</a>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>

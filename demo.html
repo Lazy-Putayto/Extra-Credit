@@ -3,57 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proof of Function Demo</title>
+    <title>Proof of Function Demo &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Proof of Function</div>
         <h1>Proof of Function Demo</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>Full System Walkthrough &mdash; Metabolic Maze Summary & Verification</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>Proof of Function Demo</h2>
+            <h2>&#127916; Proof of Function Demo</h2>
+
             <div class="demo-instructions">
-              <p>This page walks through a representative run of the system, showing how each station reacts and how counters change.</p>
-              <ul>
-                  <li><strong>Step-by-step run:</strong> the demo will add items in order and display the resulting messages.</li>
-                  <li><strong>Deficiency demo:</strong> phosphorus pillar removal is included.</li>
-                  <li><strong>Meters summary:</strong> a small dashboard updates so you can see values accumulate.</li>
-                  <li><strong>Narration tips:</strong> watch the descriptions and consider the biological rationale for each movement.</li>
-              </ul>
+                <p><strong>Purpose:</strong> This page demonstrates all seven stations in sequence, showing how each physiological mechanism works and how they interconnect in the broader context of animal nutrition and digestion.</p>
+                <ul>
+                    <li><strong>Run Scenarios:</strong> Click &ldquo;Run Favorable Scenarios&rdquo; to watch a step-by-step walkthrough with scientific narration (auto-plays each step every 1.35 seconds)</li>
+                    <li><strong>Review Your Data:</strong> Click &ldquo;Show My Station Data&rdquo; to load and display everything you&rsquo;ve done across the stations</li>
+                    <li><strong>Canvas Diagram:</strong> Watch the animated dot travel through the seven-station metabolic pathway</li>
+                    <li><strong>Metrics Dashboard:</strong> A live grid shows key counts from each station</li>
+                </ul>
             </div>
-            <canvas id="maze-canvas" width="600" height="400"></canvas>
+
+            <!-- Canvas Maze Diagram -->
+            <p style="font-size:.83rem;color:#5a6a82;margin:.5rem 0 .2rem;font-weight:600;">Metabolic Pathway Diagram (animated on run):</p>
+            <canvas id="maze-canvas" width="580" height="370" style="width:100%;height:auto;"></canvas>
+
             <div class="simulation">
-                <button onclick="runBasedOnState()">Run Using Current Station Data</button>
-                <button onclick="runAllScenarios()">Run Through Favorable Scenarios</button>
-                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-                <div id="demo-meters" class="meter">(meters will appear here)</div>
-                <div id="demo-result" class="result"></div>
+                <div class="simulation-title">&#9878; Demo Controls</div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;">
+                    <button onclick="runAllScenarios()" class="btn-success">&#9654; Run Favorable Scenarios (Auto-Narrated)</button>
+                    <button onclick="runBasedOnState()">&#128202; Show My Station Data</button>
+                    <button onclick="animateMaze()" class="btn-warning">&#127916; Animate Maze Only</button>
+                    <button onclick="resetAllData()" class="btn-danger">&#9888; Reset All Station Data</button>
+                </div>
+
+                <div id="debug-output"></div>
+
+                <!-- Metrics Dashboard -->
+                <p style="font-size:.82rem;font-weight:600;color:#5a6a82;margin-bottom:.4rem;">Station Metrics Dashboard:</p>
+                <div id="demo-meters">
+                    <div class="demo-stat"><span class="demo-stat-label">S1 Accepted</span><span class="demo-stat-value" id="dm-s1a">0</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S1 Jammed</span><span class="demo-stat-value" id="dm-s1j">0</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S2 Fat-Soluble Stored</span><span class="demo-stat-value" id="dm-s2f">0</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S2 Water-Sol. Excreted</span><span class="demo-stat-value" id="dm-s2w">0</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S3 Energy Volume</span><span class="demo-stat-value" id="dm-s3e">0/3</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S3 Pillar Removed</span><span class="demo-stat-value" id="dm-s3p">No</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S4 Acid Drops</span><span class="demo-stat-value" id="dm-s4a">0</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S4 Buffer Drops</span><span class="demo-stat-value" id="dm-s4b">0</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S5 Lymph/Lacteal</span><span class="demo-stat-value" id="dm-s5l">0</span></div>
+                    <div class="demo-stat"><span class="demo-stat-label">S5 Blood Capillary</span><span class="demo-stat-value" id="dm-s5c">0</span></div>
+                </div>
+
+                <p style="font-size:.82rem;font-weight:600;color:#5a6a82;margin:.75rem 0 .4rem;">Narration Log:</p>
+                <div id="demo-result" class="result" style="opacity:1;max-height:450px;overflow-y:auto;"></div>
             </div>
-            <a href="index.html" class="back-link">Back to Home</a>
+
+            <!-- Biological Summary -->
+            <div class="fact-panel" style="margin-top:1.25rem;">
+                <div class="panel-title">Narration Guide &mdash; Key Biological Explanations</div>
+                <p>Use these explanations when narrating the demo run:</p>
+                <ul style="padding-left:1.3rem;margin-top:.4rem;font-size:.88rem;line-height:1.8;">
+                    <li><strong>S1 &mdash; Herbivore Intake:</strong> <em>"The lipid is diverted here because it enters the lymphatic system rather than the blood capillaries due to its hydrophobic nature requiring chylomicron packaging."</em></li>
+                    <li><strong>S2 &mdash; Vitamins:</strong> <em>"Fat-soluble vitamins follow the lipid pathway via chylomicrons; water-soluble vitamins dissolve in aqueous intestinal fluid and are excreted once plasma saturation is reached."</em></li>
+                    <li><strong>S3 &mdash; Phosphorus Pillar:</strong> <em>"Removing the phosphorus pillar shows how mineral deficiency (hypophosphatemia) disrupts hydroxyapatite formation, causing structural bone failure (osteomalacia)."</em></li>
+                    <li><strong>S4 &mdash; pH Gate:</strong> <em>"Pepsin activates only at low gastric pH (1.5-3.5). When bicarbonate from the pancreas raises the duodenal pH above 4, pepsin is irreversibly denatured and ceases function."</em></li>
+                    <li><strong>S5 &mdash; Divergence:</strong> <em>"Lipids packaged as chylomicrons enter the central lacteal; amino acids and monosaccharides travel via Na+-coupled transporters directly into portal blood."</em></li>
+                    <li><strong>S6 &mdash; Microbiome:</strong> <em>"When antibiotics remove gut flora, SCFA production stops, colonocyte Na+/water transport fails, and water rushes through too quickly to be reabsorbed."</em></li>
+                    <li><strong>S7 &mdash; Comparative Adaptor:</strong> <em>"The sparrow&rsquo;s muscular gizzard with gastroliths replaces the mechanical grinding function of molars. The hawk&rsquo;s shortened GI tract reflects the ease of protein digestion requiring less fermentation time."</em></li>
+                </ul>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Initialize demo page metrics from saved state
+        window.addEventListener('DOMContentLoaded', function() {
+            loadState();
+            updateDemoPageMetrics();
+            animateMaze();
+        });
+
+        function updateDemoPageMetrics() {
+            var el = function(id) { return document.getElementById(id); };
+            if (el('dm-s1a')) el('dm-s1a').textContent = intakeAccepted;
+            if (el('dm-s1j')) el('dm-s1j').textContent = intakeJammed;
+            if (el('dm-s2f')) el('dm-s2f').textContent = fatCount;
+            if (el('dm-s2w')) el('dm-s2w').textContent = waterCount;
+            if (el('dm-s3e')) el('dm-s3e').textContent = energyTotal + '/3';
+            if (el('dm-s3p')) el('dm-s3p').textContent = pillarRemovedFlag ? 'Yes' : 'No';
+            if (el('dm-s4a')) el('dm-s4a').textContent = acidCount;
+            if (el('dm-s4b')) el('dm-s4b').textContent = bufferCount;
+            if (el('dm-s5l')) el('dm-s5l').textContent = lymphCount;
+            if (el('dm-s5c')) el('dm-s5c').textContent = capillaryCount;
+        }
+
+        function resetAllData() {
+            if (!confirm('Reset ALL station data? This clears all progress.')) return;
+            localStorage.removeItem('demoState');
+            intakeAccepted = 0; intakeJammed = 0;
+            fatCount = 0; waterCount = 0;
+            lymphCount = 0; capillaryCount = 0;
+            energyTotal = 0; pillarRemovedFlag = false;
+            pHState = { acid:false, inhibitor:false, buffer:false, protein:false };
+            acidCount = 0; bufferCount = 0; inhibitorCount = 0; proteinCount = 0;
+            completedStations = [];
+            adaptorState = {
+                hawk:    { sparrow:false, hawk:false, crop:false, longtube:false, sharpbeak:false },
+                sparrow: { sparrow:false, hawk:false, crop:false, longtube:false, sharpbeak:false }
+            };
+            updateDemoPageMetrics();
+            var r = document.getElementById('demo-result');
+            if (r) { r.innerHTML = '<p style="color:#5a6a82;font-style:italic;">All station data cleared. Visit each station to begin fresh.</p>'; r.classList.add("show"); }
+        }
+    </script>
 </body>
 </html>

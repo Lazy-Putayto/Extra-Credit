@@ -3,60 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Station 2: Vitamin Partition</title>
+    <title>Station 2: Vitamin Partition &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Station 2 of 7</div>
         <h1>Station 2: Vitamin Partition</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>The Solubility Filter &mdash; Fat-Soluble vs. Water-Soluble Vitamins</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>The Vitamin Partition</h2>
-            <p>Action: Model the difference between fat-soluble and water-soluble vitamins and keep a running tally of each path.</p>
-            <p>Mechanical Requirement: Design a "Solubility Filter." One path must allow "Water Soluble" tokens to be flushed out into a "waste" cup, while a separate mechanism diverts "Fat-Soluble" tokens (A, D, and K) into a "Storage Tank" representing long-term tissue storage. The simulation counts each token in storage or waste.</p>
-            <img src="images/vitamin_structure.png" alt="Vitamin Structure" class="section-image"/>
-            <!-- replace with local vitamin structure image -->
+            <h2>&#128138; The Vitamin Solubility Filter</h2>
+            <p class="section-desc">
+                This station models the <strong>differential absorption and storage</strong> of vitamins based on
+                their solubility properties. Fat-soluble vitamins (A, D, E, K) dissolve in lipids and are stored in
+                adipose tissue and the liver. Water-soluble vitamins (B complex, C) dissolve in aqueous solution and
+                are rapidly excreted in urine when consumed in excess.
+            </p>
+
+            <img src="images/vitamin_structure.png" alt="Vitamin Molecular Structures" class="section-image"/>
+
+            <!-- Biological Background -->
+            <div class="fact-panel">
+                <div class="panel-title">Biological Background &mdash; Vitamin Classification</div>
+                <p><strong>Fat-Soluble Vitamins (A, D, E, K):</strong> These vitamins possess long hydrophobic carbon chains or ring structures. They are absorbed together with dietary fats via <span class="term">micelle formation</span> and <span class="term">chylomicron</span> packaging in the small intestine, entering the lymphatic system before reaching the bloodstream. They accumulate in the liver and adipose tissue over time.</p>
+                <p style="margin-top:.5rem;"><strong>Water-Soluble Vitamins (B complex, C):</strong> These vitamins have polar hydroxyl or carboxyl functional groups making them hydrophilic. They dissolve directly in the aqueous intestinal contents and are absorbed via specific carrier proteins. Once plasma concentrations exceed the renal threshold, they are filtered by the glomerulus and excreted in urine.</p>
+            </div>
+
+            <div class="warn-panel">
+                <div class="panel-title">Clinical Significance &mdash; Toxicity Risk</div>
+                <p>Because fat-soluble vitamins <strong>accumulate</strong> in the body, excessive intake can cause <span class="term">hypervitaminosis</span>. For example, Vitamin A toxicity (hypervitaminosis A) causes intracranial hypertension and liver damage. Vitamin D excess causes hypercalcemia. Water-soluble vitamins are generally safer in excess (except B6, which can cause peripheral neuropathy at very high doses).</p>
+            </div>
+
+            <!-- SVG Filter Diagram -->
+            <svg viewBox="0 0 440 140" xmlns="http://www.w3.org/2000/svg" style="display:block;max-width:500px;margin:1rem auto;background:#f8fafc;border-radius:8px;border:1px solid #dde4ee;padding:8px;">
+                <!-- Input funnel -->
+                <polygon points="200,10 240,10 260,45 180,45" fill="#dde4ee" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="220" y="30" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">Vitamins In</text>
+                <!-- Filter box -->
+                <rect x="170" y="45" width="100" height="28" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="220" y="63" font-family="sans-serif" font-size="10" fill="#1a3a5c" text-anchor="middle" font-weight="bold">Solubility Filter</text>
+                <!-- Left path: fat-soluble -->
+                <path d="M180,73 L100,73 L100,110" stroke="#e67e22" stroke-width="2.5" fill="none" stroke-dasharray="4,3"/>
+                <rect x="60"  y="110" width="80" height="22" rx="4" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+                <text x="100" y="125" font-family="sans-serif" font-size="9" fill="#78350f" text-anchor="middle">Adipose / Liver Storage</text>
+                <!-- Right path: water-soluble -->
+                <path d="M260,73 L340,73 L340,110" stroke="#2980b9" stroke-width="2.5" fill="none" stroke-dasharray="4,3"/>
+                <rect x="300" y="110" width="80" height="22" rx="4" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+                <text x="340" y="125" font-family="sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Renal Excretion (Urine)</text>
+                <!-- Labels -->
+                <text x="135" y="70" font-family="sans-serif" font-size="9" fill="#e67e22" text-anchor="middle">Fat-Soluble</text>
+                <text x="305" y="70" font-family="sans-serif" font-size="9" fill="#2980b9" text-anchor="middle">Water-Soluble</text>
+            </svg>
+
+            <!-- Simulation -->
             <div class="simulation">
-                <p>Drag vitamin tokens into the filter; track where they go.</p>
-                <button onclick="resetVitamin()">Reset Station</button>
-                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-                <div class="items">
-                    <div id="vit-b" draggable="true" ondragstart="drag(event)" data-type="water" class="draggable">Vitamin B</div>
-                    <div id="vit-c" draggable="true" ondragstart="drag(event)" data-type="water" class="draggable">Vitamin C</div>
-                    <div id="vit-d" draggable="true" ondragstart="drag(event)" data-type="fat" class="draggable">Vitamin D</div>
-                    <div id="vit-a" draggable="true" ondragstart="drag(event)" data-type="fat" class="draggable">Vitamin A</div>
-                    <div id="vit-k" draggable="true" ondragstart="drag(event)" data-type="fat" class="draggable">Vitamin K</div>
-                    <div id="vit-zinc" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Zinc Pill</div>
-                    <div id="vit-stone" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Stone</div>
+                <div class="simulation-title">&#9878; Interactive Simulation</div>
+                <p class="sim-instructions">Drag vitamin tokens into the filter. Observe which pathway each vitamin takes and watch the counters update. Notice the color-coding: <strong style="color:#78350f;">amber = fat-soluble</strong>, <strong style="color:#1e40af;">blue = water-soluble</strong>.</p>
+
+                <div id="debug-output"></div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem;">
+                    <button onclick="resetVitamin()" class="btn-reset">Reset Station</button>
                 </div>
-                <div id="vitamin-zone" class="dropzone" ondrop="dropVitamin(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
-                <div id="storage-counter" class="counter">Stored (fat): 0</div>
-                <div id="waste-counter" class="counter">Wasted (water): 0</div>
+
+                <div class="items-bank">
+                    <div class="items-bank-label">Fat-Soluble Vitamins (A, D, E, K) &mdash; stored in adipose & liver</div>
+                    <div class="items">
+                        <div id="vit-d" draggable="true" ondragstart="drag(event)" data-type="fat" class="draggable"
+                             data-tip="Vitamin D (Calciferol): Regulates Ca2+ absorption. Activated in kidney.">Vitamin D</div>
+                        <div id="vit-a" draggable="true" ondragstart="drag(event)" data-type="fat" class="draggable"
+                             data-tip="Vitamin A (Retinol): Night vision (rhodopsin), epithelial maintenance.">Vitamin A</div>
+                        <div id="vit-e" draggable="true" ondragstart="drag(event)" data-type="fat" class="draggable"
+                             data-tip="Vitamin E (Tocopherol): Antioxidant protecting cell membranes from lipid peroxidation.">Vitamin E</div>
+                        <div id="vit-k" draggable="true" ondragstart="drag(event)" data-type="fat" class="draggable"
+                             data-tip="Vitamin K: Gamma-carboxylation of clotting factors II, VII, IX, X.">Vitamin K</div>
+                    </div>
+                    <div class="items-bank-label" style="margin-top:.5rem;">Water-Soluble Vitamins (B, C) &mdash; excess excreted in urine</div>
+                    <div class="items">
+                        <div id="vit-b" draggable="true" ondragstart="drag(event)" data-type="water" class="draggable"
+                             data-tip="Vitamin B Complex: Coenzymes in metabolic pathways (NAD+, FAD, etc.).">Vitamin B</div>
+                        <div id="vit-c" draggable="true" ondragstart="drag(event)" data-type="water" class="draggable"
+                             data-tip="Vitamin C (Ascorbic acid): Collagen synthesis, antioxidant. Deficiency = scurvy.">Vitamin C</div>
+                    </div>
+                    <div class="items-bank-label" style="margin-top:.5rem;">Non-Vitamin Items &mdash; different handling</div>
+                    <div class="items">
+                        <div id="vit-zinc"  draggable="true" ondragstart="drag(event)" data-type="other" class="draggable"
+                             data-tip="Zinc: Trace mineral absorbed via ZIP4 transporters. Not a vitamin.">Zinc Pill</div>
+                        <div id="vit-stone" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable"
+                             data-tip="Stone: Foreign body. No nutritional value. Rejected.">Stone</div>
+                    </div>
+                </div>
+
+                <div id="vitamin-zone" class="dropzone"
+                     ondrop="dropVitamin(event); removeDragOver(event)"
+                     ondragover="allowDrop(event)"
+                     ondragleave="removeDragOver(event)">
+                    Drop vitamins into the Solubility Filter here
+                </div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0;">
+                    <div id="storage-counter" class="counter">Fat-Soluble Stored: 0</div>
+                    <div id="waste-counter"   class="counter">Water-Soluble Excreted: 0</div>
+                </div>
                 <div id="vitamin-result" class="result"></div>
             </div>
-            <a href="index.html" class="back-link">Back to Home</a>
+
+            <!-- Vitamin Reference Table -->
+            <div class="fact-panel" style="margin-top:1.25rem;">
+                <div class="panel-title">Quick Reference &mdash; Key Vitamins</div>
+                <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin-top:.4rem;">
+                    <thead>
+                        <tr style="background:#dbeafe;color:#1e40af;">
+                            <th style="padding:.4rem .6rem;text-align:left;border-bottom:2px solid #93c5fd;">Vitamin</th>
+                            <th style="padding:.4rem .6rem;text-align:left;border-bottom:2px solid #93c5fd;">Type</th>
+                            <th style="padding:.4rem .6rem;text-align:left;border-bottom:2px solid #93c5fd;">Key Function</th>
+                            <th style="padding:.4rem .6rem;text-align:left;border-bottom:2px solid #93c5fd;">Deficiency Disease</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:.38rem .6rem;">A (Retinol)</td><td style="color:#78350f;font-weight:600;">Fat</td><td style="padding:.38rem .6rem;">Vision, epithelium, immunity</td><td style="padding:.38rem .6rem;">Night blindness, Xerophthalmia</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;background:#f8fafc;"><td style="padding:.38rem .6rem;">D (Calciferol)</td><td style="color:#78350f;font-weight:600;">Fat</td><td style="padding:.38rem .6rem;">CaÂ²âº/POâÂ³â» absorption</td><td style="padding:.38rem .6rem;">Rickets (children), Osteomalacia</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:.38rem .6rem;">K (Phylloquinone)</td><td style="color:#78350f;font-weight:600;">Fat</td><td style="padding:.38rem .6rem;">Blood clotting (factors II, VII, IX, X)</td><td style="padding:.38rem .6rem;">Bleeding disorders, Hemorrhage</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;background:#f8fafc;"><td style="padding:.38rem .6rem;">B Complex</td><td style="color:#1e40af;font-weight:600;">Water</td><td style="padding:.38rem .6rem;">Coenzymes in metabolism</td><td style="padding:.38rem .6rem;">Beriberi (B1), Pellagra (B3), Anemia (B12)</td></tr>
+                        <tr><td style="padding:.38rem .6rem;">C (Ascorbate)</td><td style="color:#1e40af;font-weight:600;">Water</td><td style="padding:.38rem .6rem;">Collagen synthesis, antioxidant</td><td style="padding:.38rem .6rem;">Scurvy</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quiz -->
+            <div class="quiz-section">
+                <h3>&#128270; Check Your Understanding</h3>
+
+                <div class="quiz-question">
+                    <p>1. Vitamin D deficiency in children causes which condition?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Scurvy is caused by Vitamin C deficiency. It results in collagen breakdown, bleeding gums, and slow wound healing.')">
+                        (A) Scurvy
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Pellagra (dermatitis, diarrhea, dementia) is caused by Vitamin B3 (niacin) deficiency.')">
+                        (B) Pellagra
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Vitamin D deficiency impairs calcium absorption, leading to inadequate bone mineralization. In children this causes Rickets (soft, deformed bones). In adults it causes Osteomalacia.')">
+                        (C) Rickets
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Beriberi is caused by Vitamin B1 (thiamine) deficiency, affecting the nervous system and cardiovascular function.')">
+                        (D) Beriberi
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. Why are fat-soluble vitamins potentially dangerous in very large doses?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Incorrect. Fat-soluble vitamins are absorbed efficiently with dietary fat and are not particularly difficult to absorb.')">
+                        (A) They are difficult to absorb from food
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Unlike water-soluble vitamins which are excreted in urine when in excess, fat-soluble vitamins accumulate in adipose tissue and the liver, potentially reaching toxic concentrations. This is called hypervitaminosis.')">
+                        (B) They accumulate in fatty tissues rather than being excreted
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Incorrect. Fat-soluble vitamins are not more chemically reactive than water-soluble ones. Some are actually powerful antioxidants.')">
+                        (C) They are highly chemically reactive
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Incorrect. Fat-soluble vitamins require fats for absorption (hence the name), not less fat intake.')">
+                        (D) They require less fat in the diet for absorption
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <a href="station3.html" class="back-link">Next: Station 3 &mdash; Nutritional Stress Test &rarr;</a>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>

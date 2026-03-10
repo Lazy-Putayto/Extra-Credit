@@ -3,70 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Station 1: Herbivore Intake</title>
+    <title>Station 1: Herbivore Intake &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Station 1 of 7</div>
         <h1>Station 1: Herbivore Intake</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>The Selective Intake Funnel &mdash; Dietary Specificity & Dental Adaptation</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>The Herbivore Intake</h2>
-            <p>Action: Create an "Intake Funnel" that accepts only items typical of an herbivorous diet and keeps track of accepted vs. jammed inputs.</p>
-            <p>Mechanical Requirement: Use three distinct objects as "fuel" (e.g., a small wooden bead for nuts, a piece of green felt for leaves, and a marble for berries). The funnel must be designed to jam or reject "carnivorous" items like eggshells or plastic insects; the simulation records how many items pass or jam.</p>
-            <img src="images/herbivore_teeth.png" alt="Herbivore Teeth" class="section-image"/>
-            <!-- place local herbivore teeth image here -->
+            <h2>&#127807; The Herbivore Intake Funnel</h2>
+            <p class="section-desc">
+                This station models the <strong>selective intake mechanism</strong> of an herbivorous digestive system.
+                Herbivores possess highly specialized dentition and gastrointestinal anatomy that are specifically
+                optimized for plant-based diets. Non-plant materials are mechanically incompatible and trigger
+                a rejection or jam response.
+            </p>
+
+            <img src="images/herbivore_teeth.png" alt="Herbivore Teeth Anatomy" class="section-image"/>
+
+            <!-- Biological Background -->
+            <div class="fact-panel">
+                <div class="panel-title">Biological Background &mdash; Herbivore Adaptations</div>
+                <p><strong>Dentition:</strong> Herbivores possess <span class="term">hypsodont</span> (high-crowned) molars and <span class="term">selenodont</span> teeth with broad, ridged surfaces ideal for lateral grinding of cellulose-rich plant material. Carnassial teeth (for shearing flesh) are absent.</p>
+                <p style="margin-top:.5rem;"><strong>GI Length:</strong> Herbivore intestines are proportionally 10&ndash;20 times body length (vs. ~5&times; in carnivores), allowing adequate fermentation time for cellulose breakdown by symbiotic microflora. Ruminants have additional stomach chambers (reticulum, rumen, omasum, abomasum) for regurgitation and re-digestion.</p>
+                <p style="margin-top:.5rem;"><strong>Salivary Chemistry:</strong> Herbivore saliva has higher volume and contains buffering bicarbonate to manage fermentation acids. Some species (e.g., horses) can produce up to 35&nbsp;L of saliva per day.</p>
+            </div>
+
+            <!-- SVG Teeth Comparison -->
+            <svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" style="display:block;max-width:500px;margin:1rem auto;background:#f8fafc;border-radius:8px;border:1px solid #dde4ee;padding:8px;">
+                <text x="100" y="18" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" text-anchor="middle">Herbivore Tooth</text>
+                <text x="300" y="18" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" text-anchor="middle">Carnivore Tooth</text>
+                <!-- Herbivore flat molar -->
+                <rect x="50" y="28" width="100" height="30" rx="4" fill="#27ae60" opacity=".7"/>
+                <line x1="65"  y1="28" x2="65"  y2="58" stroke="#1a6b38" stroke-width="1.5"/>
+                <line x1="80"  y1="28" x2="80"  y2="58" stroke="#1a6b38" stroke-width="1.5"/>
+                <line x1="95"  y1="28" x2="95"  y2="58" stroke="#1a6b38" stroke-width="1.5"/>
+                <line x1="110" y1="28" x2="110" y2="58" stroke="#1a6b38" stroke-width="1.5"/>
+                <line x1="125" y1="28" x2="125" y2="58" stroke="#1a6b38" stroke-width="1.5"/>
+                <text x="100" y="74" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">Flat ridged surface</text>
+                <text x="100" y="86" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">for lateral grinding</text>
+                <!-- Carnivore pointed canine -->
+                <polygon points="280,58 300,28 320,58" fill="#c0392b" opacity=".7"/>
+                <text x="300" y="74" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">Sharp pointed surface</text>
+                <text x="300" y="86" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">for tearing & shearing</text>
+            </svg>
+
+            <!-- Simulation -->
             <div class="simulation">
-                <p>Drag items into the funnel. Herbivore food should pass through a visual digestive pathway; items inappropriate for an herbivore will be rejected or jam the system, with a short animation illustrating the process.</p>
-                <button onclick="resetIntake()">Reset Station</button>
-                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-                <div class="items">
-                    <div id="item-nut" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Nut</div>
-                    <div id="item-leaf" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Leaf</div>
-                    <div id="item-berry" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Berry</div>
-                    <div id="item-twig" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Twig</div>
-                    <div id="item-grass" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Grass</div>
-                    <div id="item-insect" draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable">Insect</div>
-                    <div id="item-eggshell" draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable">Eggshell</div>
-                    <div id="item-meat" draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable">Meat</div>
-                    <div id="item-water" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Water</div>
-                    <div id="item-rock" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Rock</div>
+                <div class="simulation-title">&#9878; Interactive Simulation</div>
+                <p class="sim-instructions">Drag food items into the Intake Funnel below. Herbivore-compatible items will animate down the digestive pathway; incompatible items will jam or bounce back. Watch the counter update.</p>
+
+                <div id="debug-output"></div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem;">
+                    <button onclick="resetIntake()" class="btn-reset">Reset Station</button>
                 </div>
-                <div id="intake-zone" class="dropzone" ondrop="dropIntake(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
-                <!-- visual digestive pathway for animation -->
-                <div id="intake-path" class="intake-path">
-                    <div class="segment head"></div>
-                    <div class="segment esophagus"></div>
-                    <div class="segment stomach"></div>
-                    <!-- markers will be created dynamically -->
+
+                <div class="items-bank">
+                    <div class="items-bank-label">Herbivore-Compatible Foods &mdash; drag into funnel</div>
+                    <div class="items">
+                        <div id="item-nut"   draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable"
+                             data-tip="Nuts: High lipid, hard lignin coat. Needs flat molar crushing.">&#127792; Nut</div>
+                        <div id="item-leaf"  draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable"
+                             data-tip="Leaf: Cell walls = cellulose. Requires hindgut fermentation.">&#127807; Leaf</div>
+                        <div id="item-berry" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable"
+                             data-tip="Berry: Simple sugars (fructose/glucose). Easily digested.">&#127827; Berry</div>
+                        <div id="item-grass" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable"
+                             data-tip="Grass: Silica-rich. Wears teeth; requires rumination in ruminants.">&#127807; Grass</div>
+                        <div id="item-twig"  draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable"
+                             data-tip="Twig: Lignin-rich. Marginal value; only for specialist browsers.">&#127795; Twig</div>
+                    </div>
+                    <div class="items-bank-label" style="margin-top:.5rem;">Non-Herbivore Items &mdash; these will cause a jam</div>
+                    <div class="items">
+                        <div id="item-insect"   draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable"
+                             data-tip="Insect: Chitin exoskeleton. No chitinase in herbivores.">&#129412; Insect</div>
+                        <div id="item-eggshell" draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable"
+                             data-tip="Eggshell: CaCO3. No nutritional value; abrasive.">&#129693; Eggshell</div>
+                        <div id="item-meat"     draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable"
+                             data-tip="Meat: Requires pepsin at pH 1.5-2.5. Incompatible.">&#129385; Meat</div>
+                        <div id="item-water"    draggable="true" ondragstart="drag(event)" data-type="other"     class="draggable"
+                             data-tip="Water: Neutral. Absorbed in large intestine.">&#128167; Water</div>
+                        <div id="item-rock"     draggable="true" ondragstart="drag(event)" data-type="other"     class="draggable"
+                             data-tip="Rock: Inorganic. No value. Used only in gizzards.">&#128255; Rock</div>
+                    </div>
                 </div>
-                <div class="path-label">mouth → esophagus → stomach</div>
-                <div id="intake-meter" class="meter">Accepted: 0 | Jammed: 0</div>
+
+                <div id="intake-zone" class="dropzone"
+                     ondrop="dropIntake(event); removeDragOver(event)"
+                     ondragover="allowDrop(event)"
+                     ondragleave="removeDragOver(event)">
+                    Drop food into the Intake Funnel here
+                </div>
+
+                <!-- Visual digestive pathway -->
+                <div style="text-align:center;">
+                    <div id="intake-path" class="intake-path">
+                        <div class="segment head"></div>
+                        <div class="segment esophagus"></div>
+                        <div class="segment stomach"></div>
+                    </div>
+                    <div class="path-label">mouth &rarr; esophagus &rarr; stomach</div>
+                </div>
+
+                <div style="margin:.5rem 0;">
+                    <div id="intake-meter" class="meter">Accepted: 0  |  Jammed: 0</div>
+                </div>
                 <div id="intake-result" class="result"></div>
             </div>
-            <a href="index.html" class="back-link">Back to Home</a>
+
+            <!-- Quiz -->
+            <div class="quiz-section">
+                <h3>&#128270; Check Your Understanding</h3>
+
+                <div class="quiz-question">
+                    <p>1. Which anatomical feature is characteristic of herbivore dentition?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Carnassial teeth are found in carnivores (cats, dogs) and are designed for shearing flesh, not grinding plant material.')" >
+                        (A) Carnassial teeth for shearing flesh
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Flat, ridged molariform teeth enable the lateral grinding motion needed to break down cellulose-rich plant cell walls.')">
+                        (B) Flat, ridged molars for lateral grinding
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Short intestines are a carnivore adaptation, allowing rapid transit of animal protein with lower fermentation time needed.')">
+                        (C) Short intestines for rapid protein transit
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Extremely low gastric pH (1.5-2.0) is a carnivore adaptation to rapidly denature animal proteins and kill meat-borne pathogens.')">
+                        (D) Extremely low gastric pH (1.5-2.0)
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. Why does cellulose require microbial fermentation in most herbivores?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Cellulose is not soluble in water. It is an insoluble structural polysaccharide forming plant cell walls.')">
+                        (A) Cellulose dissolves in water and passes unchanged
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Cellulose does not inhibit digestion enzymes - it simply cannot be cleaved by them as they lack the appropriate active site configuration.')">
+                        (B) Cellulose inhibits amylase activity
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Animals lack cellulase. Symbiotic bacteria in the rumen (ruminants) or hindgut (horses, rabbits) produce cellulase and break beta-1,4-glycosidic bonds in cellulose.')">
+                        (C) Mammals lack the enzyme cellulase to cleave beta-1,4-glycosidic bonds
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Cellulose is not toxic. It is inert and passes through without digestion unless fermented by microorganisms.')">
+                        (D) Cellulose is toxic and must be neutralized
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <a href="station2.html" class="back-link">Next: Station 2 &mdash; Vitamin Partition &rarr;</a>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>

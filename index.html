@@ -3,45 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metabolic Maze: Home</title>
+    <title>Metabolic Maze &mdash; Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Extra Credit Project</div>
         <h1>Metabolic Maze</h1>
         <p>Digital Simulation of Physiological Nutrient Processing</p>
-        <svg width="500" height="200" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="#2c3e50"/>
-            <text x="50%" y="50%" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">Digestive System Diagram</text>
+        <!-- Inline SVG digestive pathway diagram -->
+        <svg width="480" height="80" viewBox="0 0 480 80" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:.75rem auto 0;opacity:.7;">
+            <defs>
+                <linearGradient id="pipGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%"   stop-color="#27ae60"/>
+                    <stop offset="33%"  stop-color="#8e44ad"/>
+                    <stop offset="66%"  stop-color="#2980b9"/>
+                    <stop offset="100%" stop-color="#c0392b"/>
+                </linearGradient>
+            </defs>
+            <path d="M20,40 C60,10 100,70 140,40 C180,10 220,70 260,40 C300,10 340,70 380,40 C410,20 440,50 460,40"
+                  stroke="url(#pipGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <circle cx="20"  cy="40" r="6" fill="#27ae60"/>
+            <circle cx="140" cy="40" r="6" fill="#8e44ad"/>
+            <circle cx="260" cy="40" r="6" fill="#e67e22"/>
+            <circle cx="380" cy="40" r="6" fill="#2980b9"/>
+            <circle cx="460" cy="40" r="6" fill="#c0392b"/>
+            <text x="20"  y="62" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.75)" text-anchor="middle">Mouth</text>
+            <text x="140" y="62" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.75)" text-anchor="middle">Stomach</text>
+            <text x="260" y="62" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.75)" text-anchor="middle">S. Intestine</text>
+            <text x="380" y="62" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.75)" text-anchor="middle">L. Intestine</text>
+            <text x="460" y="62" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.75)" text-anchor="middle">Excretion</text>
         </svg>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
+        <!-- Objective Section -->
         <section id="intro">
-            <h2>Objective</h2>
-            <p>Design and build a functional, gravity-fed "Metabolic Maze" that physically sorts different nutrient types and simulates physiological reactions using mechanical gates. This digital version translates biological theory into an interactive web-based system.</p>
-            <img src="images/digestive_system.png" alt="Human Digestive System" class="section-image"/>
-            <!-- replace with your local image file -->
-            <p>Navigate through each station to explore the metabolic processes. Click on the stations in the navigation to begin.</p>
+            <h2>&#127358; Project Objective</h2>
+            <p class="section-desc">
+                Design and build a functional, gravity-fed <strong>Metabolic Maze</strong> that physically sorts different
+                nutrient types and simulates physiological reactions using mechanical gates. This digital version translates
+                biological theory into an interactive web-based simulation system grounded in animal anatomy & physiology.
+            </p>
+
+            <div class="fact-panel">
+                <div class="panel-title">How to Use This Site</div>
+                <p>Each <strong>Station</strong> represents a distinct physiological process. Navigate using the menu above.
+                   At every station you can <strong>drag and drop</strong> items into the simulation zone to observe
+                   simulated biological outcomes, read scientific explanations, and test your understanding with
+                   embedded quiz questions. Data persists as you navigate between stations.</p>
+            </div>
+        </section>
+
+        <!-- Station Cards Grid -->
+        <section>
+            <h2>&#127968; The Seven Stations</h2>
+            <p class="section-desc">Click any station to begin the interactive simulation. Each station builds on the previous, tracing the nutrient journey from intake to absorption.</p>
+
+            <div class="station-grid">
+                <a href="station1.html" class="station-card">
+                    <div class="station-card-header card-s1">
+                        <span class="s-num">1</span> Herbivore Intake
+                    </div>
+                    <div class="station-card-body">
+                        <p>Simulate the selective funnel of an herbivorous digestive system. Drag food items and observe which items pass vs. jam the intake funnel.</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Dentition</span>
+                            <span class="tag">Diet Specificity</span>
+                            <span class="tag">Cellulose</span>
+                            <span class="tag">Drag & Drop</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="station2.html" class="station-card">
+                    <div class="station-card-header card-s2">
+                        <span class="s-num">2</span> Vitamin Partition
+                    </div>
+                    <div class="station-card-body">
+                        <p>Model the solubility filter that separates fat-soluble vitamins (A, D, K) from water-soluble vitamins (B, C) and routes them to different destinations.</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Fat-Soluble</span>
+                            <span class="tag">Water-Soluble</span>
+                            <span class="tag">Liver Storage</span>
+                            <span class="tag">Chylomicrons</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="station3.html" class="station-card">
+                    <div class="station-card-header card-s3">
+                        <span class="s-num">3</span> Nutritional Stress Test
+                    </div>
+                    <div class="station-card-body">
+                        <p>Demonstrate mineral deficiency (remove the Phosphorus pillar) and simulate an energy gate that only opens when sufficient caloric intake is accumulated.</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Phosphorus</span>
+                            <span class="tag">Osteomalacia</span>
+                            <span class="tag">BMR</span>
+                            <span class="tag">Energy Gate</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="station4.html" class="station-card">
+                    <div class="station-card-header card-s4">
+                        <span class="s-num">4</span> Pepsin pH Gate
+                    </div>
+                    <div class="station-card-body">
+                        <p>Explore the pH-dependent activation of pepsin in the stomach. Simulate the transition to the alkaline small intestine and how buffers deactivate the enzyme.</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Pepsin</span>
+                            <span class="tag">HCl</span>
+                            <span class="tag">pH Scale</span>
+                            <span class="tag">Enzyme Kinetics</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="station5.html" class="station-card">
+                    <div class="station-card-header card-s5">
+                        <span class="s-num">5</span> Nutrient Divergence
+                    </div>
+                    <div class="station-card-body">
+                        <p>Model the unique absorption divergence at the intestinal villi: lipids enter lacteals and travel via the lymphatic system; other nutrients go directly into blood capillaries.</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Chylomicrons</span>
+                            <span class="tag">Lacteals</span>
+                            <span class="tag">Portal Blood</span>
+                            <span class="tag">SGLT1</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="station6.html" class="station-card">
+                    <div class="station-card-header card-s6">
+                        <span class="s-num">6</span> Microbiome Blockade
+                    </div>
+                    <div class="station-card-body">
+                        <p>Simulate the effect of antibiotics on the large intestine microbiome and demonstrate how flora removal leads to rapid water transit (diarrhea).</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Gut Flora</span>
+                            <span class="tag">Antibiotics</span>
+                            <span class="tag">SCFAs</span>
+                            <span class="tag">Water Absorption</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="station7.html" class="station-card">
+                    <div class="station-card-header card-s7">
+                        <span class="s-num">7</span> Comparative Adaptor
+                    </div>
+                    <div class="station-card-body">
+                        <p>Compare carnivore (Hawk) and granivore (Sparrow) anatomical adaptations. Attach modular components (gizzard, crop, beak) and test food compatibility.</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Gizzard</span>
+                            <span class="tag">Crop</span>
+                            <span class="tag">Raptor Anatomy</span>
+                            <span class="tag">Granivore</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="demo.html" class="station-card">
+                    <div class="station-card-header card-demo">
+                        <span class="s-num">&#127916;</span> Proof of Function
+                    </div>
+                    <div class="station-card-body">
+                        <p>Run a complete walkthrough of all stations with animated maze visualization and a running dashboard of all key metrics from each simulation.</p>
+                        <div class="station-card-tags">
+                            <span class="tag">Demo Run</span>
+                            <span class="tag">Full Summary</span>
+                            <span class="tag">Canvas Animation</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Scientific Context -->
+        <section>
+            <h2>&#128214; Scientific Background</h2>
+            <p class="section-desc">
+                The Metabolic Maze models key concepts from <em>Integrated Principles of Animal Anatomy & Physiology</em>.
+                Each station translates a specific physiological mechanism into an interactive simulation.
+            </p>
+
+            <div class="concept-panel">
+                <div class="panel-title">Key Physiological Concepts Covered</div>
+                <ul style="padding-left:1.25rem;margin-top:.4rem;font-size:.9rem;line-height:1.8;">
+                    <li><strong>Dietary Adaptation</strong> &mdash; Morphological specializations matching digestive anatomy to diet type</li>
+                    <li><strong>Vitamin Biochemistry</strong> &mdash; Differential solubility determining storage fate vs. urinary excretion</li>
+                    <li><strong>Mineral Homeostasis</strong> &mdash; Phosphate role in hydroxyapatite and skeletal integrity</li>
+                    <li><strong>Enzyme pH Dependence</strong> &mdash; Pepsin activity window and pancreatic neutralization mechanisms</li>
+                    <li><strong>Lipid Absorption Pathway</strong> &mdash; Chylomicron formation and lymphatic route vs. portal blood</li>
+                    <li><strong>Microbiome Function</strong> &mdash; Commensal flora roles in colonic water reabsorption and SCFA production</li>
+                    <li><strong>Comparative Anatomy</strong> &mdash; Gizzard, crop, and intestinal length adaptations across avian feeding guilds</li>
+                </ul>
+            </div>
+
+            <div class="warn-panel">
+                <div class="panel-title">Evaluation Criteria</div>
+                <p style="margin-top:.3rem;font-size:.9rem;">
+                    <strong>Mechanical Logic (6 pts):</strong> Gates (pH, Vitamin, Lipid) function without manual help &nbsp;|&nbsp;
+                    <strong>Scientific Accuracy (6 pts):</strong> Correct physiological representation &nbsp;|&nbsp;
+                    <strong>Structural Effort (4 pts):</strong> Clear, well-built maze &nbsp;|&nbsp;
+                    <strong>Comparative Demo (4 pts):</strong> Bird type differences clearly shown
+                </p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>

@@ -3,95 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Station 7: Comparative Adaptor</title>
+    <title>Station 7: Comparative Adaptor &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Station 7 of 7</div>
         <h1>Station 7: Comparative Adaptor</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>Avian Digestive Anatomy &mdash; Carnivore (Hawk) vs. Granivore (Sparrow)</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>The Comparative Adaptor</h2>
-            <p>Action: Explore how different digestive adaptations match diets. Drop the correct modules to configure a bird model.</p>
-            <p>Mechanical Requirement: The maze must be reconfigurable with interchangeable parts showing length, grinding chamber, and beak shape.</p>
-            <p>Try dragging several different modules; realistic combinations unlock more details. Use the reset button to clear the configuration and start fresh.</p>
-<button onclick="resetAdaptor()">Reset Station</button>
-<div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-            <img src="images/hawk.png" alt="Hawk" class="section-image"/>
-            <img src="images/sparrow.png" alt="Sparrow" class="section-image"/>
-            <!-- replace with local bird photos -->
-            <div class="simulation two-panels">
-                <!-- hawk panel -->
-                <div class="panel hawk">
-                    <h3>Hawk Configuration</h3>
-                    <p>Drag modules into the hawk adapter:</p>
-                    <div class="items">
-                        <div id="mod-hawk-sparrow" draggable="true" ondragstart="drag(event)" data-action="sparrow" class="draggable">Gizzard Module</div>
-                        <div id="mod-hawk-hawk" draggable="true" ondragstart="drag(event)" data-action="hawk" class="draggable">Short Tube</div>
-                        <div id="mod-hawk-crop" draggable="true" ondragstart="drag(event)" data-action="crop" class="draggable">Crop Chamber</div>
-                        <div id="mod-hawk-longtube" draggable="true" ondragstart="drag(event)" data-action="longtube" class="draggable">Extended Intestine</div>
-                        <div id="mod-hawk-sharpbeak" draggable="true" ondragstart="drag(event)" data-action="sharpbeak" class="draggable">Sharp Beak</div>
-                        <div id="mod-hawk-wrong" draggable="true" ondragstart="drag(event)" data-action="wrong" class="draggable">Wrong Part</div>
-                    </div>
-                    <h4>Test food:</h4>
-                    <div class="items">
-                        <div id="food-hawk-meat" draggable="true" ondragstart="drag(event)" class="draggable">Meat</div>
-                        <div id="food-hawk-fish" draggable="true" ondragstart="drag(event)" class="draggable">Fish</div>
-                        <div id="food-hawk-insect" draggable="true" ondragstart="drag(event)" class="draggable">Insect</div>
-                        <div id="food-hawk-seed" draggable="true" ondragstart="drag(event)" class="draggable">Seed</div>
-                    </div>
-                    <div id="hawk-adaptor-zone" class="dropzone" ondrop="dropAdaptor(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
-                    <div id="adaptor-result-hawk" class="result"></div>
-                    <div id="hawk-test-zone" class="dropzone" ondrop="dropTestFood(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop meal here</div>
-                    <div id="test-result-hawk" class="result"></div>
+            <h2>&#129413; The Comparative Adaptor &mdash; Avian Digestive Systems</h2>
+            <p class="section-desc">
+                This station explores how digestive anatomy is shaped by <strong>evolutionary diet adaptation</strong>.
+                Compare the GI tract of a <strong>carnivorous raptor (Hawk)</strong> &mdash; optimized for rapid meat processing &mdash;
+                with a <strong>granivorous passerine (Sparrow)</strong> &mdash; equipped with specialized structures for
+                grinding hard seeds. Attach the correct modules and test food compatibility.
+            </p>
+
+            <!-- Biological Background -->
+            <div class="fact-panel">
+                <div class="panel-title">Biological Background &mdash; Avian Digestive Anatomy</div>
+                <p><strong>Proventriculus:</strong> All birds have a glandular stomach (<span class="term">proventriculus</span>) that secretes pepsin and HCl. This is analogous to the mammalian stomach.</p>
+                <p style="margin-top:.45rem;"><strong>Gizzard (Ventriculus):</strong> The <span class="term">gizzard</span> is a muscular organ unique to birds (and some other vertebrates). In granivores like sparrows, it is extremely well-developed (thick muscular walls) and contains <span class="term">gastroliths</span> (swallowed grit/pebbles) that grind hard seeds &mdash; replacing the function of teeth. In carnivores like hawks, the gizzard is less developed as soft animal tissue doesn&rsquo;t require mechanical grinding.</p>
+                <p style="margin-top:.45rem;"><strong>Crop (Ingluvies):</strong> Many birds have a <span class="term">crop</span> &mdash; a diverticulum of the esophagus for temporary food storage. Particularly well-developed in seed-eating birds (allows rapid ingestion, digest later in safety). Raptors typically have a simpler, smaller crop.</p>
+                <p style="margin-top:.45rem;"><strong>Intestinal Length:</strong> Herbivorous/granivorous birds have longer intestines relative to body size to allow more fermentation time for cellulose/starch digestion. Carnivores have shorter tracts as protein-rich animal tissue is more readily digested.</p>
+            </div>
+
+            <!-- SVG Comparison Diagram -->
+            <svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg" style="display:block;max-width:560px;margin:1rem auto;background:#f8fafc;border-radius:8px;border:1px solid #dde4ee;padding:8px;">
+                <text x="130" y="15" font-family="sans-serif" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="middle">HAWK (Carnivore)</text>
+                <text x="370" y="15" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="middle">SPARROW (Granivore)</text>
+                <!-- Hawk GI tract - short, simple -->
+                <rect x="30"  y="22" width="50" height="18" rx="4" fill="#fee2e2" stroke="#f87171" stroke-width="1.5"/>
+                <text x="55"  y="35" font-family="sans-serif" font-size="8" fill="#7f1d1d" text-anchor="middle">Proventriculus</text>
+                <path d="M80,31 L100,31" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a3)"/>
+                <rect x="100" y="22" width="40" height="18" rx="4" fill="#fecaca" stroke="#f87171" stroke-width="1" opacity=".6"/>
+                <text x="120" y="35" font-family="sans-serif" font-size="8" fill="#7f1d1d" text-anchor="middle">Weak Gizzard</text>
+                <path d="M140,31 L160,31" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a3)"/>
+                <path d="M160,31 Q200,31 210,60 Q200,90 160,90 Q130,90 130,70 Q130,50 160,50 Q185,50 190,60 Q185,75 160,80 Q145,80 145,70" stroke="#f87171" stroke-width="2" fill="none"/>
+                <text x="190" y="85" font-family="sans-serif" font-size="8" fill="#7f1d1d">Short intestine</text>
+
+                <!-- Sparrow GI tract - with crop and large gizzard -->
+                <rect x="270" y="22" width="40" height="18" rx="4" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1.5"/>
+                <text x="290" y="35" font-family="sans-serif" font-size="8" fill="#1e3a8a" text-anchor="middle">Crop</text>
+                <path d="M310,31 L330,31" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a3)"/>
+                <rect x="330" y="22" width="50" height="18" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+                <text x="355" y="35" font-family="sans-serif" font-size="8" fill="#1e3a8a" text-anchor="middle">Proventriculus</text>
+                <path d="M380,31 L400,31" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a3)"/>
+                <ellipse cx="420" cy="50" rx="25" ry="20" fill="#93c5fd" stroke="#2563a8" stroke-width="2"/>
+                <text x="420" y="48" font-family="sans-serif" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">Gizzard</text>
+                <text x="420" y="59" font-family="sans-serif" font-size="7" fill="#1e3a8a" text-anchor="middle">(gastroliths)</text>
+                <path d="M395,65 L380,90" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a3)"/>
+                <path d="M380,90 Q350,90 345,110 Q350,130 380,130 Q400,130 405,115 Q400,100 380,100 Q365,100 365,110 Q365,120 380,122" stroke="#60a5fa" stroke-width="2" fill="none"/>
+                <text x="415" y="125" font-family="sans-serif" font-size="8" fill="#1e3a8a">Long intestine</text>
+                <defs><marker id="a3" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#94a3b8"/></marker></defs>
+            </svg>
+
+            <div id="debug-output"></div>
+
+            <!-- Simulation -->
+            <div class="simulation">
+                <div class="simulation-title">&#9878; Interactive Modular Simulation</div>
+                <p class="sim-instructions">Each panel represents one bird configuration. Drag modules into the adapter zone to configure the digestive system. Then drag food items into the Test Meal zone to see if the current configuration can process it.</p>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;">
+                    <button onclick="resetAdaptor()" class="btn-reset">Reset All Modules</button>
                 </div>
-                <!-- sparrow panel -->
-                <div class="panel sparrow">
-                    <h3>Sparrow Configuration</h3>
-                    <p>Drag modules into the sparrow adapter:</p>
-                    <div class="items">
-                        <div id="mod-sparrow-sparrow" draggable="true" ondragstart="drag(event)" data-action="sparrow" class="draggable">Gizzard Module</div>
-                        <div id="mod-sparrow-hawk" draggable="true" ondragstart="drag(event)" data-action="hawk" class="draggable">Short Tube</div>
-                        <div id="mod-sparrow-crop" draggable="true" ondragstart="drag(event)" data-action="crop" class="draggable">Crop Chamber</div>
-                        <div id="mod-sparrow-longtube" draggable="true" ondragstart="drag(event)" data-action="longtube" class="draggable">Extended Intestine</div>
-                        <div id="mod-sparrow-sharpbeak" draggable="true" ondragstart="drag(event)" data-action="sharpbeak" class="draggable">Sharp Beak</div>
-                        <div id="mod-sparrow-wrong" draggable="true" ondragstart="drag(event)" data-action="wrong" class="draggable">Wrong Part</div>
+
+                <div class="two-panels">
+                    <!-- HAWK PANEL -->
+                    <div class="panel hawk">
+                        <h3>&#129413; Hawk Configuration (Carnivore)</h3>
+                        <p style="font-size:.83rem;color:#5a6a82;margin-bottom:.75rem;">Configure the hawk&rsquo;s digestive system. The hawk is adapted for a <strong>high-protein meat diet</strong> &mdash; short GI tract, reduced gizzard, hooked beak.</p>
+
+                        <div class="items-bank">
+                            <div class="items-bank-label">Available Modules &mdash; drag into zone below</div>
+                            <div class="items" style="flex-wrap:wrap;">
+                                <div id="mod-hawk-hawk"      draggable="true" ondragstart="drag(event)" data-action="hawk"      class="draggable" data-type="carnivore"
+                                     data-tip="Short tube: Carnivore GI adapted for rapid protein transit.">Short Tube (Hawk GI)</div>
+                                <div id="mod-hawk-sharpbeak" draggable="true" ondragstart="drag(event)" data-action="sharpbeak" class="draggable" data-type="carnivore"
+                                     data-tip="Hooked beak: Tears flesh from prey. Adapted for carnivory.">Sharp Beak (Hook)</div>
+                                <div id="mod-hawk-sparrow"   draggable="true" ondragstart="drag(event)" data-action="sparrow"   class="draggable" data-type="herbivore"
+                                     data-tip="Gizzard: Not typical for hawks. Test what happens!">Gizzard Module</div>
+                                <div id="mod-hawk-crop"      draggable="true" ondragstart="drag(event)" data-action="crop"      class="draggable" data-type="other"
+                                     data-tip="Crop: Esophageal storage pouch. Less prominent in hawks.">Crop Chamber</div>
+                                <div id="mod-hawk-longtube"  draggable="true" ondragstart="drag(event)" data-action="longtube"  class="draggable" data-type="herbivore"
+                                     data-tip="Extended intestine: Herbivore adaptation. Mismatch for hawks.">Extended Intestine</div>
+                                <div id="mod-hawk-wrong"     draggable="true" ondragstart="drag(event)" data-action="wrong"     class="draggable" data-type="other"
+                                     data-tip="Wrong part: Incompatible. See what happens when you try.">Wrong Part</div>
+                            </div>
+                        </div>
+
+                        <div id="hawk-adaptor-zone" class="dropzone"
+                             ondrop="dropAdaptor(event); removeDragOver(event)"
+                             ondragover="allowDrop(event)"
+                             ondragleave="removeDragOver(event)">
+                            Drop Hawk modules here
+                        </div>
+                        <div id="attached-hawk" class="result"></div>
+                        <div id="adaptor-result-hawk" class="result"></div>
+
+                        <div class="items-bank" style="margin-top:.75rem;">
+                            <div class="items-bank-label">Test Foods &mdash; drag to Test Zone</div>
+                            <div class="items">
+                                <div id="food-hawk-meat"   draggable="true" ondragstart="drag(event)" class="draggable" data-type="protein">Meat</div>
+                                <div id="food-hawk-fish"   draggable="true" ondragstart="drag(event)" class="draggable" data-type="protein">Fish</div>
+                                <div id="food-hawk-insect" draggable="true" ondragstart="drag(event)" class="draggable" data-type="other">Insect</div>
+                                <div id="food-hawk-seed"   draggable="true" ondragstart="drag(event)" class="draggable" data-type="carb">Seed</div>
+                            </div>
+                        </div>
+                        <div id="hawk-test-zone" class="dropzone"
+                             ondrop="dropTestFood(event); removeDragOver(event)"
+                             ondragover="allowDrop(event)"
+                             ondragleave="removeDragOver(event)">
+                            Drop test meal here to check compatibility
+                        </div>
+                        <div id="test-result-hawk" class="result"></div>
                     </div>
-                    <h4>Test food:</h4>
-                    <div class="items">
-                        <div id="food-sparrow-seed" draggable="true" ondragstart="drag(event)" class="draggable">Seed</div>
-                        <div id="food-sparrow-berry" draggable="true" ondragstart="drag(event)" class="draggable">Berry</div>
-                        <div id="food-sparrow-grass" draggable="true" ondragstart="drag(event)" class="draggable">Grass</div>
-                        <div id="food-sparrow-insect" draggable="true" ondragstart="drag(event)" class="draggable">Insect</div>
+
+                    <!-- SPARROW PANEL -->
+                    <div class="panel sparrow">
+                        <h3>&#128033; Sparrow Configuration (Granivore)</h3>
+                        <p style="font-size:.83rem;color:#5a6a82;margin-bottom:.75rem;">Configure the sparrow&rsquo;s digestive system. Sparrows are <strong>granivores (seed-eaters)</strong> &mdash; they need a muscular gizzard, crop for seed storage, and longer intestines.</p>
+
+                        <div class="items-bank">
+                            <div class="items-bank-label">Available Modules &mdash; drag into zone below</div>
+                            <div class="items" style="flex-wrap:wrap;">
+                                <div id="mod-sparrow-sparrow"   draggable="true" ondragstart="drag(event)" data-action="sparrow"   class="draggable" data-type="herbivore"
+                                     data-tip="Gizzard: Muscular grinding chamber with gastroliths. Essential for seeds.">Gizzard Module</div>
+                                <div id="mod-sparrow-crop"      draggable="true" ondragstart="drag(event)" data-action="crop"      class="draggable" data-type="herbivore"
+                                     data-tip="Crop: Stores and softens seeds before gizzard processing.">Crop Chamber</div>
+                                <div id="mod-sparrow-longtube"  draggable="true" ondragstart="drag(event)" data-action="longtube"  class="draggable" data-type="herbivore"
+                                     data-tip="Extended intestine: More surface area for starch/fiber digestion.">Extended Intestine</div>
+                                <div id="mod-sparrow-hawk"      draggable="true" ondragstart="drag(event)" data-action="hawk"      class="draggable" data-type="carnivore"
+                                     data-tip="Short tube: Carnivore adaptation. Mismatch for sparrow.">Short Tube (Hawk GI)</div>
+                                <div id="mod-sparrow-sharpbeak" draggable="true" ondragstart="drag(event)" data-action="sharpbeak" class="draggable" data-type="carnivore"
+                                     data-tip="Hooked beak: Carnivore beak. Mismatch for sparrow diet.">Sharp Beak (Hook)</div>
+                                <div id="mod-sparrow-wrong"     draggable="true" ondragstart="drag(event)" data-action="wrong"     class="draggable" data-type="other"
+                                     data-tip="Wrong part: Incompatible module.">Wrong Part</div>
+                            </div>
+                        </div>
+
+                        <div id="sparrow-adaptor-zone" class="dropzone"
+                             ondrop="dropAdaptor(event); removeDragOver(event)"
+                             ondragover="allowDrop(event)"
+                             ondragleave="removeDragOver(event)">
+                            Drop Sparrow modules here
+                        </div>
+                        <div id="attached-sparrow" class="result"></div>
+                        <div id="adaptor-result-sparrow" class="result"></div>
+
+                        <div class="items-bank" style="margin-top:.75rem;">
+                            <div class="items-bank-label">Test Foods &mdash; drag to Test Zone</div>
+                            <div class="items">
+                                <div id="food-sparrow-seed"   draggable="true" ondragstart="drag(event)" class="draggable" data-type="carb">Seed</div>
+                                <div id="food-sparrow-berry"  draggable="true" ondragstart="drag(event)" class="draggable" data-type="herbivore">Berry</div>
+                                <div id="food-sparrow-grass"  draggable="true" ondragstart="drag(event)" class="draggable" data-type="herbivore">Grass</div>
+                                <div id="food-sparrow-insect" draggable="true" ondragstart="drag(event)" class="draggable" data-type="other">Insect</div>
+                            </div>
+                        </div>
+                        <div id="sparrow-test-zone" class="dropzone"
+                             ondrop="dropTestFood(event); removeDragOver(event)"
+                             ondragover="allowDrop(event)"
+                             ondragleave="removeDragOver(event)">
+                            Drop test meal here to check compatibility
+                        </div>
+                        <div id="test-result-sparrow" class="result"></div>
                     </div>
-                    <div id="sparrow-adaptor-zone" class="dropzone" ondrop="dropAdaptor(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
-                    <div id="adaptor-result-sparrow" class="result"></div>
-                    <div id="sparrow-test-zone" class="dropzone" ondrop="dropTestFood(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop meal here</div>
-                    <div id="test-result-sparrow" class="result"></div>
                 </div>
-            </div>            <a href="index.html" class="back-link">Back to Home</a>
+
+                <div id="adaptor-result" class="result" style="margin-top:.75rem;"></div>
+            </div>
+
+            <!-- Quiz -->
+            <div class="quiz-section">
+                <h3>&#128270; Check Your Understanding</h3>
+
+                <div class="quiz-question">
+                    <p>1. What structure in granivorous birds (like sparrows) replaces the function of teeth for grinding hard seeds?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'A larger beak helps with cracking open seeds in some species, but the internal grinding mechanism is the gizzard. The beak alone cannot grind seeds into digestible particles.')">
+                        (A) A larger, stronger beak
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Longer intestines increase absorption time but do not perform mechanical grinding of hard seed coats. The gizzard performs the grinding function.')">
+                        (B) Longer intestines
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! The muscular gizzard (ventriculus) in granivores contains gastroliths (swallowed stones/grit). Powerful muscular contractions (up to 200N in large species) between the hard grit and gizzard walls pulverize hard seed coats, releasing the nutritious endosperm within - functionally equivalent to molariform teeth in herbivores.')">
+                        (C) The muscular gizzard with gastroliths (swallowed grit)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'The proventriculus is the glandular stomach found in ALL birds. It secretes pepsin and HCl for chemical digestion but does not perform mechanical grinding of hard seeds.')">
+                        (D) A specialized proventriculus
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. Why do carnivorous birds (hawks) have shorter intestines than herbivorous/granivorous birds?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Hawks fly powerfully and efficiently despite any relative intestinal length. Body weight reduction (hollow bones, feather adaptations) is achieved by other means, not specifically by intestinal shortening as a primary adaptation.')">
+                        (A) Short intestines reduce body weight for flight
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Hawks have a strong immune system, but intestinal length is not related to immunity. The gut-associated lymphoid tissue (GALT) provides immunity regardless of intestinal length.')">
+                        (B) Short intestines improve immune function
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Animal tissue (muscle protein, fat) is nutritionally dense, easily denatured at low pH, and readily hydrolyzed by proteases and lipases. It requires minimal fermentation time compared to plant matter. Short intestines reduce the time meat spends in the gut, limiting bacterial putrefaction of protein-rich food, and reflecting the lower enzymatic processing time required.')">
+                        (C) Animal tissue requires less fermentation time than plant matter; protein is easily digested by proteases
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'There is no evidence that intestinal length is correlated with aerial hunting vs. ground feeding. The adaptation is dietary, not behavioral.')">
+                        (D) Short intestines allow faster aerial hunting response
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <a href="demo.html" class="back-link">Next: Proof of Function Demo &rarr;</a>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>

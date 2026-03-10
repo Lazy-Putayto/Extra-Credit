@@ -3,57 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Station 4: Pepsin pH Gate</title>
+    <title>Station 4: Pepsin pH Gate &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Station 4 of 7</div>
         <h1>Station 4: Pepsin pH Gate</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>Gastric Enzyme Kinetics &mdash; pH-Dependent Protein Digestion</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>The Pepsin pH Gate</h2>
-            <p>Action: Simulate the transition from the acidic stomach to the basic small intestine, tracking the substances you drop.</p>
-            <p>Mechanical Requirement: Create a "Stomach" section where a Protein bead is only released if you manually trigger a "high-acid" tilt. As the bead moves into the "Intestine" section, the track must level out or introduce a physical barrier to show the enzyme ceasing function as the pH is neutralized by the pancreas. The simulation now counts how many acid, buffer, inhibitor and protein items you've added.</p>
-            <img src="images/stomach_anatomy.png" alt="Stomach Anatomy" class="section-image"/>
-            <!-- place your stomach image here -->
-            <div class="simulation">
-                <p>Drag items to simulate stomach conditions:</p>
-                <div class="items">
-                    <div id="item-protein" draggable="true" ondragstart="drag(event)" data-type="protein" class="draggable">Protein bead</div>
-                    <div id="item-acid" draggable="true" ondragstart="drag(event)" data-type="acid" class="draggable">Stomach acid</div>
-                    <div id="item-buffer" draggable="true" ondragstart="drag(event)" data-type="buffer" class="draggable">Alkaline buffer</div>
-                    <div id="item-inhibitor" draggable="true" ondragstart="drag(event)" data-type="inhibitor" class="draggable">Pepsin inhibitor</div>
+            <h2>&#9874; The Pepsin pH Gate</h2>
+            <p class="section-desc">
+                This station simulates the <strong>pH-dependent activation and deactivation of pepsin</strong>,
+                the primary proteolytic enzyme of the stomach. Pepsin functions only within a narrow acidic window
+                and is irreversibly denatured when the pH rises above ~4 as food passes into the small intestine.
+            </p>
+
+            <!-- Biological Background -->
+            <div class="fact-panel">
+                <div class="panel-title">Biological Background &mdash; Pepsin & Gastric Acid</div>
+                <p><strong>HCl Secretion:</strong> Parietal cells in the gastric fundus secrete hydrochloric acid via the <span class="term">H&#8314;/K&#8314;-ATPase</span> (proton pump). This lowers gastric pH to 1.5&ndash;3.5, creating the optimal environment for peptic digestion.</p>
+                <p style="margin-top:.5rem;"><strong>Pepsinogen Activation:</strong> Chief cells secrete inactive <span class="term">pepsinogen</span> (zymogen). At pH < 5, pepsinogen undergoes autocatalytic activation to <span class="term">pepsin</span> by cleavage of the N-terminal activation peptide. Pepsin is a member of the aspartyl protease family and cleaves peptide bonds adjacent to aromatic amino acids (Phe, Tyr, Trp).</p>
+                <p style="margin-top:.5rem;"><strong>Pancreatic Neutralization:</strong> When acidic chyme enters the duodenum, S-cells release <span class="term">secretin</span>, which stimulates pancreatic ductal cells to secrete a bicarbonate-rich fluid. This neutralizes gastric acid, raising duodenal pH to ~7, at which point pepsin is irreversibly denatured. Trypsin, chymotrypsin, and elastase then take over protein digestion.</p>
+            </div>
+
+            <!-- pH Scale Visual -->
+            <div class="ph-scale-wrap" style="margin:1.25rem 0;">
+                <p style="font-size:.85rem;color:#5a6a82;margin-bottom:.5rem;font-weight:600;">Interactive pH Indicator (updates when you drop items)</p>
+                <div class="ph-scale">
+                    <div class="ph-seg" style="background:#dc2626;"  data-tip="pH 0-1: Extremely acidic. Battery acid.">0</div>
+                    <div class="ph-seg" style="background:#e05b26;"  data-tip="pH 1-2: Gastric acid range. Pepsin OPTIMAL.">1</div>
+                    <div class="ph-seg" style="background:#e07826;"  data-tip="pH 2-3: Gastric acid. Pepsin active.">2</div>
+                    <div class="ph-seg" style="background:#e0a026;"  data-tip="pH 3-4: Acidic. Pepsin partly active.">3</div>
+                    <div class="ph-seg" style="background:#d4c020;"  data-tip="pH 4-5: Weak acid. Pepsin deactivating.">4</div>
+                    <div class="ph-seg" style="background:#a0c820;"  data-tip="pH 5-6: Weak acid. Pepsin inactive.">5</div>
+                    <div class="ph-seg" style="background:#60c040;"  data-tip="pH 6-7: Near-neutral. Small intestine range.">6</div>
+                    <div class="ph-seg" style="background:#20a040;"  data-tip="pH 7: Neutral. Pancreatic enzymes active here.">7</div>
+                    <div class="ph-seg" style="background:#2090a0;"  data-tip="pH 8-9: Slightly alkaline. Duodenum/pancreatic secretion.">8</div>
+                    <div class="ph-seg" style="background:#2060c0;"  data-tip="pH 9-10: Alkaline. Blood pH is ~7.4.">9</div>
+                    <div class="ph-seg" style="background:#2040d0;"  data-tip="pH 10-11: Strongly alkaline.">10</div>
+                    <div class="ph-seg" style="background:#3020e0;"  data-tip="pH 11-12: Very alkaline.">11</div>
+                    <div class="ph-seg" style="background:#5020d0;"  data-tip="pH 12-13: Caustic.">12</div>
+                    <div class="ph-seg" style="background:#6010c0;"  data-tip="pH 13-14: Lye (NaOH) range.">13</div>
                 </div>
-                <div id="ph-zone" class="dropzone" ondrop="dropPh(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop items here</div>
-                <button onclick="tiltStomach()">Simulate Tilt</button>
-                <button onclick="resetPh()">Reset</button>
-                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-                <div id="ph-meter" class="meter">Acid:0 Buffer:0 Inhibitor:0 Protein:0</div>
+                <div class="ph-indicator-row">
+                    <span id="ph-arrow" style="position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:1.1rem;transition:left .5s ease;">&#9660;</span>
+                </div>
+                <div class="ph-labels">
+                    <span>Acidic (pH 0)</span>
+                    <span id="ph-value-label" style="font-weight:700;color:#1a3a5c;">Estimated pH: 7.0</span>
+                    <span>Alkaline (pH 14)</span>
+                </div>
+            </div>
+
+            <div class="concept-panel">
+                <div class="panel-title">Pepsin Activity Window</div>
+                <p>Pepsin has its <strong>optimal activity at pH 1.5&ndash;2.5</strong>. It retains some activity up to pH 4. Above pH 4, pepsin activity drops sharply, and above pH 6 it undergoes <span class="term">irreversible denaturation</span> &mdash; meaning it cannot be reactivated even if pH is lowered again. This is in contrast to the reversible inhibition of many other enzymes.</p>
+            </div>
+
+            <!-- Simulation -->
+            <div class="simulation">
+                <div class="simulation-title">&#9878; Interactive Simulation</div>
+                <p class="sim-instructions">Step 1: Drop Stomach Acid to lower pH. Step 2: Drop Protein Bead (substrate). Step 3: Click "Simulate Tilt" to release protein into the intestine. Try adding a Buffer first to see what happens.</p>
+
+                <div id="debug-output"></div>
+
+                <div class="items-bank">
+                    <div class="items-bank-label">Drag items into the Stomach Zone</div>
+                    <div class="items">
+                        <div id="item-acid"      draggable="true" ondragstart="drag(event)" data-type="acid"     class="draggable"
+                             data-tip="HCl: Secreted by parietal cells via H+/K+-ATPase. Lowers gastric pH to ~2.">Stomach Acid (HCl)</div>
+                        <div id="item-protein"   draggable="true" ondragstart="drag(event)" data-type="protein"  class="draggable"
+                             data-tip="Protein: Substrate for pepsin. Must be in acidic environment to be cleaved.">Protein Bead</div>
+                        <div id="item-buffer"    draggable="true" ondragstart="drag(event)" data-type="buffer"   class="draggable"
+                             data-tip="NaHCO3: Pancreatic bicarbonate. Neutralizes acid; deactivates pepsin.">Alkaline Buffer (HCO3-)</div>
+                        <div id="item-inhibitor" draggable="true" ondragstart="drag(event)" data-type="inhibitor" class="draggable"
+                             data-tip="Pepsin inhibitor: Blocks active site. Models PPI pharmacotherapy (e.g., omeprazole).">Pepsin Inhibitor</div>
+                    </div>
+                </div>
+
+                <div id="ph-zone" class="dropzone"
+                     ondrop="dropPh(event); removeDragOver(event)"
+                     ondragover="allowDrop(event)"
+                     ondragleave="removeDragOver(event)">
+                    Drop items into the Stomach here (observe pH scale above)
+                </div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0;">
+                    <button onclick="tiltStomach()">Simulate Tilt (Peristaltic Release)</button>
+                    <button onclick="resetPh()" class="btn-reset">Reset Station</button>
+                </div>
+
+                <div id="ph-meter" class="meter">Acid: 0  |  Buffer: 0  |  Inhibitor: 0  |  Protein: 0</div>
                 <div id="ph-result" class="result"></div>
             </div>
-            <a href="index.html" class="back-link">Back to Home</a>
+
+            <!-- Stomach-to-Intestine Transition SVG -->
+            <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg" style="display:block;max-width:500px;margin:1rem auto;background:#f8fafc;border-radius:8px;border:1px solid #dde4ee;padding:8px;">
+                <!-- Stomach -->
+                <ellipse cx="110" cy="55" rx="90" ry="42" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+                <text x="110" y="45" font-family="sans-serif" font-size="11" fill="#7f1d1d" text-anchor="middle" font-weight="bold">STOMACH</text>
+                <text x="110" y="60" font-family="sans-serif" font-size="9"  fill="#7f1d1d" text-anchor="middle">pH 1.5 - 3.5</text>
+                <text x="110" y="74" font-family="sans-serif" font-size="9"  fill="#7f1d1d" text-anchor="middle">Pepsin ACTIVE</text>
+                <!-- Arrow -->
+                <path d="M202,55 L240,55" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+                <text x="221" y="48" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Pyloric</text>
+                <text x="221" y="57" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Sphincter</text>
+                <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+                <!-- Small Intestine -->
+                <ellipse cx="330" cy="55" rx="80" ry="42" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+                <text x="330" y="45" font-family="sans-serif" font-size="11" fill="#1e3a8a" text-anchor="middle" font-weight="bold">SMALL INTESTINE</text>
+                <text x="330" y="60" font-family="sans-serif" font-size="9"  fill="#1e3a8a" text-anchor="middle">pH 6.5 - 8.0</text>
+                <text x="330" y="74" font-family="sans-serif" font-size="9"  fill="#1e3a8a" text-anchor="middle">Pepsin DENATURED</text>
+            </svg>
+
+            <!-- Quiz -->
+            <div class="quiz-section">
+                <h3>&#128270; Check Your Understanding</h3>
+
+                <div class="quiz-question">
+                    <p>1. At what approximate pH does pepsin have its maximum proteolytic activity?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'pH 7.0 is neutral - this is the optimal pH for trypsin in the small intestine, not for pepsin. At pH 7, pepsin is completely denatured.')">
+                        (A) pH 7.0 (neutral)
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Pepsin is an aspartyl protease with optimal activity at pH 1.5-2.5. The two catalytic aspartate residues (Asp32 and Asp215) function as proton donors/acceptors and require this highly acidic environment for proper positioning.')">
+                        (B) pH 1.5 &ndash; 2.5 (strongly acidic)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'pH 8.5 is alkaline - this would be appropriate for pancreatic trypsin (optimal ~pH 7-8) but completely unsuitable for pepsin, which is denatured above pH 6.')">
+                        (C) pH 8.5 (alkaline)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'pH 4.5 is moderately acidic. While pepsin has some residual activity here, it is well below the optimal range. Activity decreases sharply as pH rises above 3.')">
+                        (D) pH 4.5 (moderately acidic)
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. What signal triggers pancreatic bicarbonate secretion into the duodenum?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Gastrin is a hormone released by G-cells in the stomach antrum. It stimulates gastric HCl secretion - the opposite effect from what is needed for duodenal neutralization.')">
+                        (A) Gastrin from stomach G-cells
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'CCK (cholecystokinin) from I-cells stimulates pancreatic enzyme secretion and gallbladder contraction. While related, it is not the primary trigger for bicarbonate secretion.')">
+                        (B) Cholecystokinin (CCK) from I-cells
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Secretin is released by S-cells in the duodenal mucosa in response to acidic chyme (pH < 4.5). Secretin specifically stimulates pancreatic ductal cells to secrete bicarbonate-rich fluid, neutralizing the acid and raising duodenal pH to 6-8.')">
+                        (C) Secretin from duodenal S-cells (triggered by acidic chyme)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Motilin is involved in the migrating myoelectric complex (MMC) - the cleansing wave between meals. It regulates GI motility rather than bicarbonate secretion.')">
+                        (D) Motilin from intestinal M-cells
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <a href="station5.html" class="back-link">Next: Station 5 &mdash; Nutrient Divergence &rarr;</a>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>

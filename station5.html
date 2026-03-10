@@ -3,60 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Station 5: Nutrient Divergence</title>
+    <title>Station 5: Nutrient Divergence &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Station 5 of 7</div>
         <h1>Station 5: Nutrient Divergence</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>The Lymphatic vs. Portal Blood Fork &mdash; Chylomicrons & Lacteals</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>The Nutrient Divergence</h2>
-            <p>Action: Model the unique absorption path of lipids and monitor how many particles take each route.</p>
-            <p>Mechanical Requirement: At the exit of the "Small Intestine," use a size-gate, magnet, or diverter ramp to ensure Lipid tokens go into a separate "Lacteal/Lymph" pipe. All other nutrients (Carbohydrates and Proteins) must take a different path into the "Capillary" pipe. The simulation now counts the items entering each path.</p>
-            <img src="images/lacteal_structure.png" alt="Lacteal Structure" class="section-image"/>
-            <!-- add local lacteal image -->
+            <h2>&#11014; The Nutrient Divergence Point</h2>
+            <p class="section-desc">
+                This station models the critical <strong>bifurcation in nutrient absorption pathways</strong> at the
+                intestinal villi. Lipids take a unique route &mdash; they cannot dissolve directly in blood and must
+                be packaged as <span class="term">chylomicrons</span> before entering the lymphatic system via
+                <span class="term">lacteals</span>. All other nutrients (amino acids, monosaccharides) travel
+                directly into the portal blood capillaries.
+            </p>
+
+            <!-- Biological Background -->
+            <div class="fact-panel">
+                <div class="panel-title">Biological Background &mdash; Why Lipids Take the Lymphatic Route</div>
+                <p><strong>Lipid Insolubility:</strong> Triglycerides, cholesterol, and fat-soluble vitamins are highly hydrophobic. They cannot dissolve in aqueous portal blood. After absorption by enterocytes, lipids are reassembled into <span class="term">triglycerides</span> and packaged with phospholipids, cholesterol, and apolipoprotein B-48 into <span class="term">chylomicrons</span>.</p>
+                <p style="margin-top:.5rem;"><strong>Lacteal & Lymph:</strong> Chylomicrons are too large to enter blood capillaries directly. They are secreted by exocytosis into the <span class="term">central lacteal</span> &mdash; a specialized lymph vessel running through each villus. They travel through mesenteric lymphatics and the <span class="term">thoracic duct</span>, finally entering the bloodstream at the left subclavian vein &mdash; bypassing the liver initially.</p>
+                <p style="margin-top:.5rem;"><strong>Blood Capillary Route:</strong> Amino acids, monosaccharides (glucose, galactose, fructose), and water-soluble vitamins are absorbed via specific carriers (SGLT1, GLUT2, PEPT1, etc.) into the enterocyte and then diffuse/transport into the <span class="term">blood capillaries</span>, entering the <span class="term">hepatic portal vein</span> for direct liver processing.</p>
+            </div>
+
+            <!-- SVG Divergence Diagram -->
+            <svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg" style="display:block;max-width:540px;margin:1rem auto;background:#f8fafc;border-radius:8px;border:1px solid #dde4ee;padding:8px;">
+                <!-- Intestinal lumen top -->
+                <rect x="120" y="8" width="220" height="30" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+                <text x="230" y="28" font-family="sans-serif" font-size="10" fill="#1e40af" text-anchor="middle" font-weight="bold">Small Intestine Lumen</text>
+                <!-- Villus -->
+                <rect x="195" y="38" width="70" height="50" rx="5" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+                <text x="230" y="68" font-family="sans-serif" font-size="9" fill="#14532d" text-anchor="middle">Enterocyte</text>
+                <text x="230" y="80" font-family="sans-serif" font-size="9" fill="#14532d" text-anchor="middle">Villus</text>
+                <!-- Divergence arrow down-left: lymph -->
+                <path d="M210,88 L120,130" stroke="#e67e22" stroke-width="2.5" fill="none" marker-end="url(#arr2)"/>
+                <!-- Divergence arrow down-right: blood -->
+                <path d="M250,88 L340,130" stroke="#2980b9" stroke-width="2.5" fill="none" marker-end="url(#arr2)"/>
+                <!-- Lymph box -->
+                <rect x="50"  y="130" width="140" height="28" rx="5" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+                <text x="120" y="148" font-family="sans-serif" font-size="10" fill="#78350f" text-anchor="middle" font-weight="bold">Central Lacteal (Lymph)</text>
+                <!-- Blood cap box -->
+                <rect x="270" y="130" width="140" height="28" rx="5" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+                <text x="340" y="148" font-family="sans-serif" font-size="10" fill="#1e40af" text-anchor="middle" font-weight="bold">Blood Capillary (Portal)</text>
+                <!-- Labels -->
+                <text x="120" y="120" font-family="sans-serif" font-size="8" fill="#78350f" text-anchor="middle">Lipids / Chylomicrons</text>
+                <text x="340" y="120" font-family="sans-serif" font-size="8" fill="#1e40af" text-anchor="middle">Glucose / Amino Acids</text>
+                <defs><marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+            </svg>
+
+            <!-- Simulation -->
             <div class="simulation">
-                <p>Drag nutrients into the divergence point; watch whether they go into lymph or blood.</p>
-                <button onclick="resetDivergence()">Reset Station</button>
-                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-                <div class="items">
-                    <div id="nut-lipid" draggable="true" ondragstart="drag(event)" data-type="lipid" class="draggable">Lipid</div>
-                    <div id="nut-chol" draggable="true" ondragstart="drag(event)" data-type="lipid" class="draggable">Cholesterol</div>
-                    <div id="nut-protein" draggable="true" ondragstart="drag(event)" data-type="protein" class="draggable">Protein</div>
-                    <div id="nut-carb" draggable="true" ondragstart="drag(event)" data-type="carb" class="draggable">Carbohydrate</div>
-                    <div id="nut-sugar" draggable="true" ondragstart="drag(event)" data-type="carb" class="draggable">Simple sugar</div>
-                    <div id="nut-foreign" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Fiber</div>
-                    <div id="nut-poison" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Toxin</div>
+                <div class="simulation-title">&#9878; Interactive Simulation</div>
+                <p class="sim-instructions">Drag nutrient tokens into the divergence point. The simulation routes each nutrient to the correct pathway (lymph or blood capillary) and updates the counters. Notice the color-coding matches nutrient type.</p>
+
+                <div id="debug-output"></div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem;">
+                    <button onclick="resetDivergence()" class="btn-reset">Reset Station</button>
                 </div>
-                <div id="divergence-zone" class="dropzone" ondrop="dropDivergence(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
-                <div id="lymph-counter" class="counter">Lymph: 0</div>
-                <div id="capillary-counter" class="counter">Capillary: 0</div>
+
+                <div class="items-bank">
+                    <div class="items-bank-label">Lipids &mdash; enter lymph/lacteal as chylomicrons</div>
+                    <div class="items">
+                        <div id="nut-lipid" draggable="true" ondragstart="drag(event)" data-type="lipid" class="draggable"
+                             data-tip="Triglyceride: Packaged into chylomicrons (ApoB-48). Enters central lacteal.">Lipid (Triglyceride)</div>
+                        <div id="nut-chol"  draggable="true" ondragstart="drag(event)" data-type="lipid" class="draggable"
+                             data-tip="Cholesterol: Incorporated into chylomicron core. Lymphatic transport.">Cholesterol</div>
+                    </div>
+                    <div class="items-bank-label" style="margin-top:.5rem;">Carbohydrates & Proteins &mdash; enter portal blood capillary</div>
+                    <div class="items">
+                        <div id="nut-protein" draggable="true" ondragstart="drag(event)" data-type="protein" class="draggable"
+                             data-tip="Amino acids: Absorbed via PEPT1, Na+-coupled transporters. Portal blood.">Protein (Amino Acids)</div>
+                        <div id="nut-carb"    draggable="true" ondragstart="drag(event)" data-type="carb"    class="draggable"
+                             data-tip="Polysaccharides hydrolyzed to glucose/galactose. SGLT1 transport. Portal.">Carbohydrate</div>
+                        <div id="nut-sugar"   draggable="true" ondragstart="drag(event)" data-type="carb"    class="draggable"
+                             data-tip="Simple monosaccharide. Rapid GLUT2 absorption. High glycemic spike.">Simple Sugar (Glucose)</div>
+                    </div>
+                    <div class="items-bank-label" style="margin-top:.5rem;">Other Materials</div>
+                    <div class="items">
+                        <div id="nut-foreign" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable"
+                             data-tip="Dietary fiber: Not absorbed. Passes to colon for fermentation.">Dietary Fiber</div>
+                        <div id="nut-poison"  draggable="true" ondragstart="drag(event)" data-type="other" class="draggable"
+                             data-tip="Lipophilic toxin: May enter lymph via chylomicrons. Emetic reflex triggered.">Lipophilic Toxin</div>
+                    </div>
+                </div>
+
+                <div id="divergence-zone" class="dropzone"
+                     ondrop="dropDivergence(event); removeDragOver(event)"
+                     ondragover="allowDrop(event)"
+                     ondragleave="removeDragOver(event)">
+                    Drop nutrients into the Divergence Point here
+                </div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0;">
+                    <div id="lymph-counter"      class="counter" style="border-color:#fcd34d;color:#78350f;">Lymph/Lacteal: 0</div>
+                    <div id="capillary-counter"  class="counter" style="border-color:#93c5fd;color:#1e40af;">Blood Capillary: 0</div>
+                </div>
                 <div id="divergence-result" class="result"></div>
             </div>
-            <a href="index.html" class="back-link">Back to Home</a>
+
+            <!-- Quiz -->
+            <div class="quiz-section">
+                <h3>&#128270; Check Your Understanding</h3>
+
+                <div class="quiz-question">
+                    <p>1. Why do lipids enter the lymphatic system (via lacteals) rather than blood capillaries directly?</p>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Lipids are hydrophobic and insoluble in aqueous blood. They must be packaged into chylomicrons (large lipoprotein particles) which are too large to pass through the tight junctions of blood capillary walls, but can enter the wider fenestrations of lymphatic lacteals.')">
+                        (A) Lipids are too hydrophobic to dissolve in blood; chylomicrons enter lacteals which have wider openings
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Lipids are not faster in lymph - lymph flows much more slowly than blood. The lymphatic route is used because of the hydrophobic nature of lipids requiring special packaging.')">
+                        (B) Lipids travel faster through lymph than blood
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'The liver does accept lipids - chylomicrons eventually deliver cholesterol to the liver as chylomicron remnants after peripheral lipoprotein lipase processing.')">
+                        (C) The liver rejects direct lipid delivery
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Blood capillaries are actually smaller and more numerous than lacteals. The issue is the solubility/size of chylomicron particles, not capillary size.')">
+                        (D) Blood capillaries are too large compared to chylomicrons
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. Which transporter is primarily responsible for glucose absorption from the intestinal lumen?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'GLUT4 is an insulin-sensitive glucose transporter found primarily in muscle and adipose tissue. It is not the primary intestinal absorption transporter.')">
+                        (A) GLUT4 (insulin-sensitive)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'GLUT5 is the primary fructose transporter in enterocytes. It facilitates fructose (but not glucose) absorption across the apical membrane.')">
+                        (B) GLUT5 (fructose-specific)
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! SGLT1 (Sodium-Glucose Linked Transporter 1) cotransports glucose and galactose with Na+ across the apical (luminal) membrane of enterocytes. The sodium gradient is maintained by basolateral Na+/K+-ATPase. Glucose then exits via GLUT2 into portal blood.')">
+                        (C) SGLT1 (Na&#8314;-coupled cotransporter)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'MCT1 (Monocarboxylate Transporter 1) transports short-chain fatty acids (like butyrate) from colonic fermentation into colonocytes. Not a glucose transporter.')">
+                        (D) MCT1 (short-chain fatty acids)
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <a href="station6.html" class="back-link">Next: Station 6 &mdash; Microbiome Blockade &rarr;</a>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>

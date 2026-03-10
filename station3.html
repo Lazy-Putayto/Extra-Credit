@@ -3,70 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Station 3: Nutritional Stress Test</title>
+    <title>Station 3: Nutritional Stress Test &mdash; Metabolic Maze</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="station-badge">Station 3 of 7</div>
         <h1>Station 3: Nutritional Stress Test</h1>
-        <p>Digital Simulation of Physiological Nutrient Processing</p>
+        <p>Mineral Deficiency & Energy Threshold &mdash; Skeletal Integrity and Metabolic Gates</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
-            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
-            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
-            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
-            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
-            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
-            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
-            <li><a href="demo.html">Proof of Function Demo</a></li>
+            <li><a href="station1.html">S1: Herbivore Intake</a></li>
+            <li><a href="station2.html">S2: Vitamin Partition</a></li>
+            <li><a href="station3.html">S3: Stress Test</a></li>
+            <li><a href="station4.html">S4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">S5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">S6: Microbiome</a></li>
+            <li><a href="station7.html">S7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <h2>The Nutritional Stress Test</h2>
-            <p>Action: Demonstrate the impact of nutrient deficiency and insufficient energy.</p>
-            <p>Mechanical Requirement:</p>
-            <ol>
-                <li>Skeletal Support: One main structural pillar of your maze must be labeled as a vital mineral (Phosphorus). You must be able to remove it to show how the "skeletal" integrity of the maze collapses or becomes unstable.</li>
-                <li>Energy Gate: Create a weighted gate that only opens if a sufficient "volume" of food is dropped. If undernutrition occurs, the gate must remain closed, stopping the metabolic process.</li>
+            <h2>&#9888; The Nutritional Stress Test</h2>
+            <p class="section-desc">
+                This station demonstrates two critical concepts: (1) the role of <strong>phosphorus as a structural
+                mineral</strong> in skeletal integrity, and (2) the concept of an <strong>energy activation threshold</strong>
+                required for metabolic processes to proceed. Both represent physiological consequences of nutritional
+                deficiency.
+            </p>
+
+            <img src="images/human_skeleton.png" alt="Human Skeleton showing bone structure" class="section-image"/>
+
+            <!-- Biological Background -->
+            <div class="fact-panel">
+                <div class="panel-title">Biological Background &mdash; Phosphorus & Skeletal Integrity</div>
+                <p><strong>Phosphorus in Bone:</strong> Phosphate (PO&#8347;&#179;&#8315;) combines with calcium to form <span class="term">hydroxyapatite</span> [Ca&#8325;(PO&#8324;)&#8323;OH], the primary mineral component of bone. Approximately 85% of the body&rsquo;s phosphorus is found in the skeleton. Phosphate is the second most abundant mineral in the body (~1% of body weight).</p>
+                <p style="margin-top:.5rem;"><strong>Hypophosphatemia</strong> (serum phosphate <0.8&nbsp;mmol/L) leads to <span class="term">osteomalacia</span> in adults and <span class="term">rickets</span> in children &mdash; conditions where insufficient mineral deposition creates soft, flexible, and easily deformed bones. The <em>osteoid matrix</em> (protein scaffold) is produced normally, but mineralization fails.</p>
+                <p style="margin-top:.5rem;"><strong>Regulatory hormones:</strong> PTH (parathyroid hormone), calcitriol (active Vitamin D), and FGF-23 (fibroblast growth factor 23) tightly regulate phosphate homeostasis through renal reabsorption and intestinal absorption modulation.</p>
+            </div>
+
+            <div class="concept-panel">
+                <div class="panel-title">Biological Background &mdash; Energy Threshold & BMR</div>
+                <p><strong>Basal Metabolic Rate (BMR):</strong> The minimum caloric intake required to sustain vital physiological functions at rest (breathing, circulation, thermoregulation, ion pumping). For an average adult, BMR is approximately 1,500&ndash;2,000&nbsp;kcal/day.</p>
+                <p style="margin-top:.5rem;">When dietary intake falls significantly below BMR, the body transitions to a <span class="term">catabolic state</span>: first utilizing glycogen stores (hepatic glycogenolysis), then mobilizing fat (lipolysis + beta-oxidation), and finally catabolizing muscle protein (gluconeogenesis). This leads to progressive impairment of all physiological systems, including intestinal absorption itself.</p>
+            </div>
+
+            <ol class="station-requirements">
+                <li><strong>Skeletal Support:</strong> Remove the Phosphorus Pillar to show structural collapse (models mineral deficiency-induced osteomalacia).</li>
+                <li><strong>Energy Gate:</strong> Accumulate sufficient energy (threshold = 3 units) to open the metabolic gate. Negative items (exercise, soda) deplete energy.</li>
             </ol>
-            <img src="images/human_skeleton.png" alt="Human Skeleton" class="section-image"/>
-            <!-- local skeleton image -->
+
+            <!-- Simulation -->
             <div class="simulation">
-                <p>Remove structural support or accumulate enough food energy to open the gate.  Drag high‑energy foods into the zone or include negative 'exercise' items to deplete.  You can also click "Burn Energy" to simulate metabolic use.</p>
-                <button onclick="removePhosphorus()">Remove Phosphorus Pillar</button>
-                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
-                <button onclick="resetStress()">Reset Station</button>
+                <div class="simulation-title">&#9878; Interactive Simulation</div>
+                <p class="sim-instructions">First, try removing the Phosphorus Pillar to observe structural failure. Then drag food items to accumulate energy and open the gate. Use negative-value items to deplete energy. Click "Burn Energy" to simulate metabolic consumption.</p>
+
+                <div id="debug-output"></div>
+
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;">
+                    <button onclick="removePhosphorus()" class="btn-danger">Remove Phosphorus Pillar</button>
+                    <button onclick="burnEnergy()" class="btn-warning">Burn Energy (&#8722;1 unit)</button>
+                    <button onclick="resetStress()" class="btn-reset">Reset Station</button>
+                </div>
+
+                <!-- Pillar + Gate -->
                 <div id="maze-container">
-                    <div id="phosphorus-pillar" class="pillar">Phosphorus Pillar</div>
-                    <div id="energy-gate" class="gate closed">Gate: CLOSED</div>
+                    <div>
+                        <div id="phosphorus-pillar" class="pillar"
+                             data-tip="Phosphorus: 85% of body stores in bone as hydroxyapatite. Structural mineral.">
+                            &#9888; Phosphorus Pillar (Ca-P Hydroxyapatite)
+                        </div>
+                        <div class="annotation" style="text-align:center;">Remove to model mineral deficiency</div>
+                    </div>
+                    <div>
+                        <div id="energy-gate" class="gate closed"
+                             data-tip="Gate opens when energy volume reaches threshold. Models BMR requirement.">
+                            CLOSED &mdash; insufficient energy
+                        </div>
+                        <div class="annotation" style="text-align:center;">Threshold: 3 energy units</div>
+                    </div>
                 </div>
-                <div id="energy-meter">Energy Volume: 0</div>
-                <div class="items">
-                    <div id="food-apple" draggable="true" ondragstart="drag(event)" data-value="1" class="draggable">Apple (1)</div>
-                    <div id="food-cheese" draggable="true" ondragstart="drag(event)" data-value="2" class="draggable">Cheese (2)</div>
-                    <div id="food-candy" draggable="true" ondragstart="drag(event)" data-value="3" class="draggable">Candy (3)</div>
-                    <div id="food-burger" draggable="true" ondragstart="drag(event)" data-value="4" class="draggable">Burger (4)</div>
-                    <div id="food-bone" draggable="true" ondragstart="drag(event)" data-value="0" class="draggable">Bone (0)</div>
-                    <div id="food-soda" draggable="true" ondragstart="drag(event)" data-value="-1" class="draggable">Soda (-1)</div>
-                    <div id="food-exercise" draggable="true" ondragstart="drag(event)" data-value="-2" class="draggable">Exercise (-2)</div>
-                    <div id="food-wheat" draggable="true" ondragstart="drag(event)" data-value="1" class="draggable">Wheat (1)</div>
+
+                <!-- Energy Meter & Progress Bar -->
+                <div id="energy-meter" style="margin-top:.75rem;">Energy Volume: 0 / 3 units required</div>
+                <div class="progress-bar-wrap">
+                    <div id="energy-bar" class="progress-bar-fill" style="width:0%;" data-value="0/3"></div>
                 </div>
-                <button onclick="burnEnergy()">Burn Energy</button>
-                <div id="energy-zone" class="dropzone" ondrop="dropEnergy(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop food here</div>
+
+                <!-- Food Items -->
+                <div class="items-bank" style="margin-top:.75rem;">
+                    <div class="items-bank-label">Positive Energy Foods &mdash; drag to drop zone</div>
+                    <div class="items">
+                        <div id="food-apple"    draggable="true" ondragstart="drag(event)" data-value="1" class="draggable" data-type="herbivore"
+                             data-tip="Apple: ~80 kcal. Simple carbohydrates + fiber. +1 energy unit.">Apple (+1)</div>
+                        <div id="food-cheese"   draggable="true" ondragstart="drag(event)" data-value="2" class="draggable" data-type="fat"
+                             data-tip="Cheese: ~100 kcal/oz. High fat + protein. +2 energy units.">Cheese (+2)</div>
+                        <div id="food-candy"    draggable="true" ondragstart="drag(event)" data-value="3" class="draggable" data-type="carb"
+                             data-tip="Candy: High sugar spike. Rapid glucose but low satiety. +3 energy units.">Candy (+3)</div>
+                        <div id="food-burger"   draggable="true" ondragstart="drag(event)" data-value="4" class="draggable" data-type="protein"
+                             data-tip="Burger: ~500 kcal. High fat + protein caloric density. +4 units.">Burger (+4)</div>
+                        <div id="food-wheat"    draggable="true" ondragstart="drag(event)" data-value="1" class="draggable" data-type="carb"
+                             data-tip="Wheat/Bread: Complex carbs. Steady glucose release. +1 unit.">Wheat (+1)</div>
+                    </div>
+                    <div class="items-bank-label" style="margin-top:.5rem;">Energy-Depleting Inputs</div>
+                    <div class="items">
+                        <div id="food-bone"     draggable="true" ondragstart="drag(event)" data-value="0"  class="draggable" data-type="other"
+                             data-tip="Bone: Indigestible. Zero caloric value. 0 units.">Bone (0)</div>
+                        <div id="food-soda"     draggable="true" ondragstart="drag(event)" data-value="-1" class="draggable" data-type="other"
+                             data-tip="Soda: Empty calories, phosphoric acid disrupts Ca-P balance. -1 unit.">Soda (-1)</div>
+                        <div id="food-exercise" draggable="true" ondragstart="drag(event)" data-value="-2" class="draggable" data-type="other"
+                             data-tip="Exercise: Increases caloric demand above dietary intake. -2 units.">Exercise (-2)</div>
+                    </div>
+                </div>
+
+                <div id="energy-zone" class="dropzone"
+                     ondrop="dropEnergy(event); removeDragOver(event)"
+                     ondragover="allowDrop(event)"
+                     ondragleave="removeDragOver(event)">
+                    Drop food into the Energy Zone here (threshold = 3 units)
+                </div>
+
                 <div id="stress-result" class="result"></div>
             </div>
-            <a href="index.html" class="back-link">Back to Home</a>
+
+            <!-- Quiz -->
+            <div class="quiz-section">
+                <h3>&#128270; Check Your Understanding</h3>
+
+                <div class="quiz-question">
+                    <p>1. What structural compound requires phosphorus for bone formation?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Collagen is the organic protein scaffold of bone matrix, but it is not a phosphate compound. It provides tensile strength but not hardness.')">
+                        (A) Collagen type I matrix
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! Hydroxyapatite [Ca5(PO4)3OH] is the inorganic mineral crystal deposited within the collagen scaffold. It provides rigidity and compressive strength. Without phosphate, only soft unmineralized osteoid remains.')">
+                        (B) Hydroxyapatite [Ca&#8325;(PO&#8324;)&#8323;OH]
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Keratin is a structural protein found in hair, nails, and epidermis - not in bone mineral composition.')">
+                        (C) Keratin protein
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Albumin is the primary blood plasma protein involved in transport and osmotic pressure regulation, not bone mineralization.')">
+                        (D) Serum albumin
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. What metabolic pathway does the body activate FIRST when dietary energy falls below BMR?</p>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Protein catabolism (gluconeogenesis from amino acids) is actually the LAST resort, as it sacrifices functional muscle tissue. The body conserves protein as long as possible.')">
+                        (A) Protein catabolism (gluconeogenesis from muscle)
+                    </button>
+                    <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, true, 'Correct! The body first mobilizes hepatic glycogen via glycogenolysis. Glycogen stores (~400g in liver + muscle) can sustain energy needs for approximately 12-24 hours before the body transitions to fat mobilization.')">
+                        (B) Hepatic glycogenolysis (glycogen breakdown)
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Ketogenesis (from fatty acid beta-oxidation) is a secondary response after glycogen is depleted. It occurs during fasting or very low carbohydrate intake.')">
+                        (C) Ketogenesis from fatty acid oxidation
+                    </button>
+                    <button class="quiz-option" onclick="checkAnswer(this, false, 'Protein synthesis increases during nutritional stress would be counterproductive - the body reduces energy-expensive biosynthetic processes during starvation.')">
+                        (D) Increased protein synthesis
+                    </button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+
+            <a href="station4.html" class="back-link">Next: Station 4 &mdash; Pepsin pH Gate &rarr;</a>
         </section>
     </main>
 
     <footer>
-        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+        <p>Created for Extra Credit &mdash; <strong>Integrated Principles of Animal Anatomy & Physiology</strong></p>
     </footer>
 
     <script src="script.js"></script>
