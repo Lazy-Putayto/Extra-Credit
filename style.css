@@ -1,0 +1,516 @@
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    color: #333;
+    animation: fadeIn 1s ease-in;
+}
+ 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+nav {
+    background-color: #2e7d32;
+    padding: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Digestive_system_diagram_en.svg/800px-Digestive_system_diagram_en.svg.png') no-repeat center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+header h1, header p {
+    position: relative;
+    z-index: 1;
+}
+
+.header-image, svg {
+    display: block;
+    margin: 1rem auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+nav {
+    background-color: #2e7d32;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+nav li:hover {
+    transform: scale(1.1);
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background-color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.section-image, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.section-image:hover, svg:hover {
+    transform: scale(1.05);
+}
+
+.simulation {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+    border-radius: 5px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* fluid green animation - intensified */
+@keyframes greenFlow {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 100%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 0%; }
+    100% { background-position: 0% 50%; }
+}
+body {
+    background: linear-gradient(135deg, #a8e6a3 0%, #4caf50 50%, #a8e6a3 100%);
+    background-size: 400% 400%;
+    animation: greenFlow 8s ease-in-out infinite;
+}
+
+/* draggable pulse and hover effects */
+.draggable {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.draggable:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.draggable:active {
+    transform: scale(1.05);
+}
+
+/* dropzone glow on dragover */
+.dropzone.dragover {
+    background-color: #aed581;
+    border-color: #689f38;
+    animation: glow 1s ease infinite;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(104,159,56,0.5); }
+    50% { box-shadow: 0 0 20px rgba(104,159,56,1); }
+    100% { box-shadow: 0 0 5px rgba(104,159,56,0.5); }
+}
+
+/* section background pulse */
+section {
+    background-color: #fff;
+    animation: sectionPulse 6s ease-in-out infinite;
+}
+@keyframes sectionPulse {
+    0%,100% { background-color: #fff; }
+    50% { background-color: #f0fff0; }
+}
+
+button {
+    background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+    border-radius: 5px;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.result.pop {
+    animation: pop 0.4s ease-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.result.show {
+    opacity: 1;
+}
+
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* draggable and dropzone styles */
+.draggable {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem;
+    background-color: #a5d6a7;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+    cursor: move;
+}
+
+.dropzone {
+    margin-top: 1rem;
+    padding: 2rem;
+    min-height: 100px;
+    background-color: #c8e6c9;
+    border: 2px dashed #388e3c;
+    border-radius: 8px;
+    text-align: center;
+    color: #2e7d32;
+}
+
+/* test food drop zone for adaptor station */
+#test-zone {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: #dcedc8;
+    border: 2px dotted #558b2f;
+    border-radius: 6px;
+    text-align: center;
+    color: #33691e;
+}
+.dropzone.jam {
+    animation: shake 0.5s;
+    border-color: #e74c3c;
+    background-color: #ffcdd2;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* station-specific visual components */
+#maze-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+/* two-column panels for station7 */
+.two-panels {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.panel {
+    flex: 1 1 45%;
+    border: 2px solid #4caf50;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: #e8f5e9;
+}
+.panel h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Station 1 intake pathway animation */
+.intake-path {
+    position: relative;
+    width: 60px;
+    height: 200px;
+    margin: 1rem auto;
+    background: linear-gradient(180deg, #e0f2f1 0%, #a5d6a7 100%);
+    border: 2px solid #388e3c;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.intake-path .segment {
+    width: 100%;
+    height: 33.33%;
+    position: relative;
+    border-bottom: 1px solid #388e3c;
+}
+.intake-path .segment:last-child {
+    border-bottom: none;
+}
+.intake-path .segment.head {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: #b2dfdb;
+}
+.intake-path .segment.stomach {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #80cbc4;
+}
+.path-label {
+    text-align: center;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+    color: #2e7d32;
+}
+.intake-marker {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+}
+.intake-marker.accepted {
+    background-color: #4caf50;
+}
+.intake-marker.rejected {
+    background-color: #e74c3c;
+}
+@keyframes slideDown {
+    0% { top: -20px; border-radius:50%; height:20px; }
+    30% { top: 40%; border-radius:10%; height:30px; }
+    60% { top: 70%; border-radius:30%; height:25px; }
+    100% { top: 100%; }
+}
+@keyframes slideUp {
+    0% { top: -20px; }
+    30% { top: 60%; }
+    60% { top: 40%; }
+    100% { top: -20px; }
+}
+.slide-down { animation: slideDown 1s ease-in-out forwards; }
+.slide-up { animation: slideUp 1s ease-in-out forwards; }
+.pillar {
+    padding: 0.5rem 1rem;
+    background-color: #ffeb3b;
+    border: 2px solid #fbc02d;
+    border-radius: 4px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.pillar.removed {
+    transform: translateY(20px) rotate(20deg);
+    opacity: 0;
+}
+.gate {
+    padding: 0.5rem 1rem;
+    border: 2px solid #555;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.gate.closed {
+    background-color: #e74c3c;
+    color: white;
+}
+.gate.open {
+    background-color: #2ecc71;
+    color: white;
+}
+
+/* animated energy flow around gate */
+.gate {
+    position: relative;
+}
+.gate::before,
+.gate::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: rgba(46,204,113,0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(46,204,113,0.6);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.gate::before {
+    /* second dot starts halfway through the animation */
+    animation-delay: 1s;
+}
+.gate.flowing::after,
+.gate.flowing::before {
+    animation: perimeterLight 2s linear infinite;
+    opacity: 1;
+}
+.gate.paused::after,
+.gate.paused::before {
+    animation: none;
+    opacity: 0.4;
+}
+
+@keyframes perimeterLight {
+    0%,100% { top: -8px; left: -8px; }
+    25%  { top: -8px; left: calc(100% - 4px); }
+    50%  { top: calc(100% - 4px); left: calc(100% - 4px); }
+    75%  { top: calc(100% - 4px); left: -8px; }
+}
+
+#energy-meter {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* generic meter/counter used by multiple stations */
+.meter, .counter {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    padding: 0.3rem 0.6rem;
+    background-color: #fff9c4;
+    border: 1px solid #fbc02d;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* demo page meter summary */
+#demo-meters {
+    display: block;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background-color: #dcedc8;
+    border: 1px solid #8bc34a;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.counter.highlight {
+    background-color: #aed581;
+    transition: background-color 0.5s ease;
+}
+
+.flow {
+    margin-top:1rem;
+    padding:0.5rem;
+    border:1px solid #388e3c;
+    border-radius:4px;
+    transition:background-color 0.3s ease, width 0.3s ease;
+    width:50%;
+}
+.flow.slow { background-color:#a5d6a7; }
+.flow.fast { background-color:#ef5350; width:100%; }
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #2980b9;
+}

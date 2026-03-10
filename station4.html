@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station 4: Pepsin pH Gate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Station 4: Pepsin pH Gate</h1>
+        <p>Digital Simulation of Physiological Nutrient Processing</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
+            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
+            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
+            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
+            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function Demo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>The Pepsin pH Gate</h2>
+            <p>Action: Simulate the transition from the acidic stomach to the basic small intestine, tracking the substances you drop.</p>
+            <p>Mechanical Requirement: Create a "Stomach" section where a Protein bead is only released if you manually trigger a "high-acid" tilt. As the bead moves into the "Intestine" section, the track must level out or introduce a physical barrier to show the enzyme ceasing function as the pH is neutralized by the pancreas. The simulation now counts how many acid, buffer, inhibitor and protein items you've added.</p>
+            <img src="images/stomach_anatomy.png" alt="Stomach Anatomy" class="section-image"/>
+            <!-- place your stomach image here -->
+            <div class="simulation">
+                <p>Drag items to simulate stomach conditions:</p>
+                <div class="items">
+                    <div id="item-protein" draggable="true" ondragstart="drag(event)" data-type="protein" class="draggable">Protein bead</div>
+                    <div id="item-acid" draggable="true" ondragstart="drag(event)" data-type="acid" class="draggable">Stomach acid</div>
+                    <div id="item-buffer" draggable="true" ondragstart="drag(event)" data-type="buffer" class="draggable">Alkaline buffer</div>
+                    <div id="item-inhibitor" draggable="true" ondragstart="drag(event)" data-type="inhibitor" class="draggable">Pepsin inhibitor</div>
+                </div>
+                <div id="ph-zone" class="dropzone" ondrop="dropPh(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop items here</div>
+                <button onclick="tiltStomach()">Simulate Tilt</button>
+                <button onclick="resetPh()">Reset</button>
+                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
+                <div id="ph-meter" class="meter">Acid:0 Buffer:0 Inhibitor:0 Protein:0</div>
+                <div id="ph-result" class="result"></div>
+            </div>
+            <a href="index.html" class="back-link">Back to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

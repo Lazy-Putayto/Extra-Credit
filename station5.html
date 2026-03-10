@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station 5: Nutrient Divergence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Station 5: Nutrient Divergence</h1>
+        <p>Digital Simulation of Physiological Nutrient Processing</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
+            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
+            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
+            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
+            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function Demo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>The Nutrient Divergence</h2>
+            <p>Action: Model the unique absorption path of lipids and monitor how many particles take each route.</p>
+            <p>Mechanical Requirement: At the exit of the "Small Intestine," use a size-gate, magnet, or diverter ramp to ensure Lipid tokens go into a separate "Lacteal/Lymph" pipe. All other nutrients (Carbohydrates and Proteins) must take a different path into the "Capillary" pipe. The simulation now counts the items entering each path.</p>
+            <img src="images/lacteal_structure.png" alt="Lacteal Structure" class="section-image"/>
+            <!-- add local lacteal image -->
+            <div class="simulation">
+                <p>Drag nutrients into the divergence point; watch whether they go into lymph or blood.</p>
+                <button onclick="resetDivergence()">Reset Station</button>
+                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
+                <div class="items">
+                    <div id="nut-lipid" draggable="true" ondragstart="drag(event)" data-type="lipid" class="draggable">Lipid</div>
+                    <div id="nut-chol" draggable="true" ondragstart="drag(event)" data-type="lipid" class="draggable">Cholesterol</div>
+                    <div id="nut-protein" draggable="true" ondragstart="drag(event)" data-type="protein" class="draggable">Protein</div>
+                    <div id="nut-carb" draggable="true" ondragstart="drag(event)" data-type="carb" class="draggable">Carbohydrate</div>
+                    <div id="nut-sugar" draggable="true" ondragstart="drag(event)" data-type="carb" class="draggable">Simple sugar</div>
+                    <div id="nut-foreign" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Fiber</div>
+                    <div id="nut-poison" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Toxin</div>
+                </div>
+                <div id="divergence-zone" class="dropzone" ondrop="dropDivergence(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
+                <div id="lymph-counter" class="counter">Lymph: 0</div>
+                <div id="capillary-counter" class="counter">Capillary: 0</div>
+                <div id="divergence-result" class="result"></div>
+            </div>
+            <a href="index.html" class="back-link">Back to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

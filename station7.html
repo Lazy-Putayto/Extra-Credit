@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station 7: Comparative Adaptor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Station 7: Comparative Adaptor</h1>
+        <p>Digital Simulation of Physiological Nutrient Processing</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
+            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
+            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
+            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
+            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function Demo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>The Comparative Adaptor</h2>
+            <p>Action: Explore how different digestive adaptations match diets. Drop the correct modules to configure a bird model.</p>
+            <p>Mechanical Requirement: The maze must be reconfigurable with interchangeable parts showing length, grinding chamber, and beak shape.</p>
+            <p>Try dragging several different modules; realistic combinations unlock more details. Use the reset button to clear the configuration and start fresh.</p>
+<button onclick="resetAdaptor()">Reset Station</button>
+<div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
+            <img src="images/hawk.png" alt="Hawk" class="section-image"/>
+            <img src="images/sparrow.png" alt="Sparrow" class="section-image"/>
+            <!-- replace with local bird photos -->
+            <div class="simulation two-panels">
+                <!-- hawk panel -->
+                <div class="panel hawk">
+                    <h3>Hawk Configuration</h3>
+                    <p>Drag modules into the hawk adapter:</p>
+                    <div class="items">
+                        <div id="mod-hawk-sparrow" draggable="true" ondragstart="drag(event)" data-action="sparrow" class="draggable">Gizzard Module</div>
+                        <div id="mod-hawk-hawk" draggable="true" ondragstart="drag(event)" data-action="hawk" class="draggable">Short Tube</div>
+                        <div id="mod-hawk-crop" draggable="true" ondragstart="drag(event)" data-action="crop" class="draggable">Crop Chamber</div>
+                        <div id="mod-hawk-longtube" draggable="true" ondragstart="drag(event)" data-action="longtube" class="draggable">Extended Intestine</div>
+                        <div id="mod-hawk-sharpbeak" draggable="true" ondragstart="drag(event)" data-action="sharpbeak" class="draggable">Sharp Beak</div>
+                        <div id="mod-hawk-wrong" draggable="true" ondragstart="drag(event)" data-action="wrong" class="draggable">Wrong Part</div>
+                    </div>
+                    <h4>Test food:</h4>
+                    <div class="items">
+                        <div id="food-hawk-meat" draggable="true" ondragstart="drag(event)" class="draggable">Meat</div>
+                        <div id="food-hawk-fish" draggable="true" ondragstart="drag(event)" class="draggable">Fish</div>
+                        <div id="food-hawk-insect" draggable="true" ondragstart="drag(event)" class="draggable">Insect</div>
+                        <div id="food-hawk-seed" draggable="true" ondragstart="drag(event)" class="draggable">Seed</div>
+                    </div>
+                    <div id="hawk-adaptor-zone" class="dropzone" ondrop="dropAdaptor(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
+                    <div id="adaptor-result-hawk" class="result"></div>
+                    <div id="hawk-test-zone" class="dropzone" ondrop="dropTestFood(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop meal here</div>
+                    <div id="test-result-hawk" class="result"></div>
+                </div>
+                <!-- sparrow panel -->
+                <div class="panel sparrow">
+                    <h3>Sparrow Configuration</h3>
+                    <p>Drag modules into the sparrow adapter:</p>
+                    <div class="items">
+                        <div id="mod-sparrow-sparrow" draggable="true" ondragstart="drag(event)" data-action="sparrow" class="draggable">Gizzard Module</div>
+                        <div id="mod-sparrow-hawk" draggable="true" ondragstart="drag(event)" data-action="hawk" class="draggable">Short Tube</div>
+                        <div id="mod-sparrow-crop" draggable="true" ondragstart="drag(event)" data-action="crop" class="draggable">Crop Chamber</div>
+                        <div id="mod-sparrow-longtube" draggable="true" ondragstart="drag(event)" data-action="longtube" class="draggable">Extended Intestine</div>
+                        <div id="mod-sparrow-sharpbeak" draggable="true" ondragstart="drag(event)" data-action="sharpbeak" class="draggable">Sharp Beak</div>
+                        <div id="mod-sparrow-wrong" draggable="true" ondragstart="drag(event)" data-action="wrong" class="draggable">Wrong Part</div>
+                    </div>
+                    <h4>Test food:</h4>
+                    <div class="items">
+                        <div id="food-sparrow-seed" draggable="true" ondragstart="drag(event)" class="draggable">Seed</div>
+                        <div id="food-sparrow-berry" draggable="true" ondragstart="drag(event)" class="draggable">Berry</div>
+                        <div id="food-sparrow-grass" draggable="true" ondragstart="drag(event)" class="draggable">Grass</div>
+                        <div id="food-sparrow-insect" draggable="true" ondragstart="drag(event)" class="draggable">Insect</div>
+                    </div>
+                    <div id="sparrow-adaptor-zone" class="dropzone" ondrop="dropAdaptor(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
+                    <div id="adaptor-result-sparrow" class="result"></div>
+                    <div id="sparrow-test-zone" class="dropzone" ondrop="dropTestFood(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop meal here</div>
+                    <div id="test-result-sparrow" class="result"></div>
+                </div>
+            </div>            <a href="index.html" class="back-link">Back to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

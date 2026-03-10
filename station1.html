@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station 1: Herbivore Intake</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Station 1: Herbivore Intake</h1>
+        <p>Digital Simulation of Physiological Nutrient Processing</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
+            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
+            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
+            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
+            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function Demo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>The Herbivore Intake</h2>
+            <p>Action: Create an "Intake Funnel" that accepts only items typical of an herbivorous diet and keeps track of accepted vs. jammed inputs.</p>
+            <p>Mechanical Requirement: Use three distinct objects as "fuel" (e.g., a small wooden bead for nuts, a piece of green felt for leaves, and a marble for berries). The funnel must be designed to jam or reject "carnivorous" items like eggshells or plastic insects; the simulation records how many items pass or jam.</p>
+            <img src="images/herbivore_teeth.png" alt="Herbivore Teeth" class="section-image"/>
+            <!-- place local herbivore teeth image here -->
+            <div class="simulation">
+                <p>Drag items into the funnel. Herbivore food should pass through a visual digestive pathway; items inappropriate for an herbivore will be rejected or jam the system, with a short animation illustrating the process.</p>
+                <button onclick="resetIntake()">Reset Station</button>
+                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
+                <div class="items">
+                    <div id="item-nut" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Nut</div>
+                    <div id="item-leaf" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Leaf</div>
+                    <div id="item-berry" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Berry</div>
+                    <div id="item-twig" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Twig</div>
+                    <div id="item-grass" draggable="true" ondragstart="drag(event)" data-type="herbivore" class="draggable">Grass</div>
+                    <div id="item-insect" draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable">Insect</div>
+                    <div id="item-eggshell" draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable">Eggshell</div>
+                    <div id="item-meat" draggable="true" ondragstart="drag(event)" data-type="carnivore" class="draggable">Meat</div>
+                    <div id="item-water" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Water</div>
+                    <div id="item-rock" draggable="true" ondragstart="drag(event)" data-type="other" class="draggable">Rock</div>
+                </div>
+                <div id="intake-zone" class="dropzone" ondrop="dropIntake(event); removeDragOver(event)" ondragover="allowDrop(event)" ondragleave="removeDragOver(event)">Drop here</div>
+                <!-- visual digestive pathway for animation -->
+                <div id="intake-path" class="intake-path">
+                    <div class="segment head"></div>
+                    <div class="segment esophagus"></div>
+                    <div class="segment stomach"></div>
+                    <!-- markers will be created dynamically -->
+                </div>
+                <div class="path-label">mouth → esophagus → stomach</div>
+                <div id="intake-meter" class="meter">Accepted: 0 | Jammed: 0</div>
+                <div id="intake-result" class="result"></div>
+            </div>
+            <a href="index.html" class="back-link">Back to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

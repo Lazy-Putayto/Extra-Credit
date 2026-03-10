@@ -1,0 +1,42 @@
+﻿Topic: Integrated Principles of Animal Anatomy & Physiology 
+Weight: +20 Points to Performance Task Score; +10 Points to Written Work 
+Format: Digital Construction & Video Demonstration (I saw how you guys are able to create  your own websites and designs so you will create a website featuring the activity) 
+Note: This originally should be a PHYSICAL construction but changed to DIGITAL to be able to  finish on time. 
+I. OBJECTIVE 
+Design and build a functional, gravity-fed "Metabolic Maze" that physically sorts different  nutrient types and simulates physiological reactions using mechanical gates. Your goal is to  translate biological theory into a working mechanical system using materials. 
+II. THE BUILD TASKS 
+Your machine must successfully navigate the following "Stations," which represent specific  physiological processes: 
+Station 1: The Herbivore Intake 
+• Action: Create an "Intake Funnel" that accepts only items typical of an herbivorous diet. 
+• Mechanical Requirement: Use three distinct objects as "fuel" (e.g., a small wooden  bead for nuts, a piece of green felt for leaves, and a marble for berries). The funnel must  be designed to jam or reject "carnivorous" items like eggshells or plastic insects. 
+Station 2: The Vitamin Partition 
+• Action: Model the difference between fat-soluble and water-soluble vitamins. 
+• Mechanical Requirement: Design a "Solubility Filter." One path must allow "Water Soluble" tokens to be flushed out into a "waste" cup, while a separate mechanism  diverts "Fat-Soluble" tokens (A, D, and K) into a "Storage Tank" representing long-term  tissue storage. 
+Station 3: The Nutritional Stress Test 
+• Action: Demonstrate the impact of nutrient deficiency and insufficient energy. • Mechanical Requirement:
+1. Skeletal Support: One main structural pillar of your maze must be labeled as a vital  mineral (Phosphorus). You must be able to remove it to show how the "skeletal"  integrity of the maze collapses or becomes unstable.  
+2. Energy Gate: Create a weighted gate that only opens if a sufficient "volume" of food is  dropped. If undernutrition occurs, the gate must remain closed, stopping the metabolic  process. 
+Station 4: The Pepsin pH Gate 
+• Action: Simulate the transition from the acidic stomach to the basic small intestine. 
+• Mechanical Requirement: Create a "Stomach" section where a Protein bead is only  released if you manually trigger a "high-acid" tilt. As the bead moves into the "Intestine"  section, the track must level out or introduce a physical barrier to show the enzyme  ceasing function as the pH is neutralized by the pancreas. 
+Station 5: The Nutrient Divergence 
+• Action: Model the unique absorption path of lipids. 
+• Mechanical Requirement: At the exit of the "Small Intestine," use a size-gate, magnet,  or diverter ramp to ensure Lipid tokens go into a separate "Lacteal/Lymph" pipe. All  other nutrients (Carbohydrates and Proteins) must take a different path into the  "Capillary" pipe. 
+Station 6: The Microbiome Blockade 
+• Action: Simulate the effect of antibiotics on the large intestine. 
+• Mechanical Requirement: Place a removable barrier labeled "Bacterial Flora" in the  large intestine. Demonstrate that when the flora is "killed" (removed), water  (represented by sand or liquid) flows through the system too rapidly to be reabsorbed,  exiting the machine immediately. 
+Station 7: The Comparative Adaptor 
+• Action: Demonstrate the anatomical differences between a carnivore (Hawk) and a  granivore (Sparrow). 
+• Mechanical Requirement: Your maze must be modular. 
+1. The Sparrow Setup: Attach a "Gizzard" module (a container with pebbles/sand  for grinding) and a longer length of tubing.
+2. The Hawk Setup: Demonstrate how the machine is shortened and the Gizzard is  bypassed/removed for a meat-based diet. 
+III. SUBMISSION REQUIREMENTS 
+1. The Physical Build: 3D-printed or purely digital entries will be accepted. 2. The "Proof of Function" Video (Max 2 Minutes): 
+o The Run: Drop your "Herbivore Fuel" and show it navigating the Vitamin Partition  and the Nutrient Divergence. 
+o The Deficiency Demo: Remove the "Phosphorus" pillar to show structural failure. 
+o The Narration: You must explain the biological "why" behind each movement  (e.g., "The lipid is diverted here because it enters the lymphatic system rather  than the blood capillaries.") 
+IV. EVALUATION CRITERIA 
+• Mechanical Logic (6 pts): Do the gates (pH, Vitamin, Lipid) function without manual  help? 
+• Scientific Accuracy (6 pts): Does the build correctly represent the physiological  principles described? 
+• Structural Effort (4 pts): Is the machine sturdy, creative, and clearly hand-built? 
+• Comparative Demonstration (4 pts): Is the difference between the bird types clearly  shown?

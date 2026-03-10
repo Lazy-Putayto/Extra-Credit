@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof of Function Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Proof of Function Demo</h1>
+        <p>Digital Simulation of Physiological Nutrient Processing</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="station1.html">Station 1: Herbivore Intake</a></li>
+            <li><a href="station2.html">Station 2: Vitamin Partition</a></li>
+            <li><a href="station3.html">Station 3: Nutritional Stress Test</a></li>
+            <li><a href="station4.html">Station 4: Pepsin pH Gate</a></li>
+            <li><a href="station5.html">Station 5: Nutrient Divergence</a></li>
+            <li><a href="station6.html">Station 6: Microbiome Blockade</a></li>
+            <li><a href="station7.html">Station 7: Comparative Adaptor</a></li>
+            <li><a href="demo.html">Proof of Function Demo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Proof of Function Demo</h2>
+            <div class="demo-instructions">
+              <p>This page walks through a representative run of the system, showing how each station reacts and how counters change.</p>
+              <ul>
+                  <li><strong>Step-by-step run:</strong> the demo will add items in order and display the resulting messages.</li>
+                  <li><strong>Deficiency demo:</strong> phosphorus pillar removal is included.</li>
+                  <li><strong>Meters summary:</strong> a small dashboard updates so you can see values accumulate.</li>
+                  <li><strong>Narration tips:</strong> watch the descriptions and consider the biological rationale for each movement.</li>
+              </ul>
+            </div>
+            <canvas id="maze-canvas" width="600" height="400"></canvas>
+            <div class="simulation">
+                <button onclick="runBasedOnState()">Run Using Current Station Data</button>
+                <button onclick="runAllScenarios()">Run Through Favorable Scenarios</button>
+                <div id="debug-output" style="margin-top:1rem;color:#c0392b;font-family:monospace;"></div>
+                <div id="demo-meters" class="meter">(meters will appear here)</div>
+                <div id="demo-result" class="result"></div>
+            </div>
+            <a href="index.html" class="back-link">Back to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Extra Credit: Integrated Principles of Animal Anatomy & Physiology</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
